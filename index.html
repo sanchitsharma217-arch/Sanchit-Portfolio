@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>SANCHIT SHARMA — Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Loader Progress Line -->
+  <div id="loader-bar" class="loader-bar"></div>
+
+  <!-- Fullscreen Canvas Animation Background -->
+  <canvas id="animation-canvas"></canvas>
+
+  <!-- Main Scrollable Content Container -->
+  <div class="scroll-container" id="scroll-container">
+    
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">SANCHIT SHARMA</h1>
+
+        <div class="hero-subtitle">
+          <span class="role-tag">AI GRAPHIC DESIGNER</span>
+          <span class="multiply-symbol">×</span>
+          <span class="role-tag">FRONTEND WEB DESIGNER</span>
+        </div>
+
+        <a href="#work" class="explore-btn" id="explore-btn">
+          <span class="btn-text">EXPLORE</span>
+          <span class="btn-glow"></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Work Section -->
+    <section class="work-section" id="work">
+      <div class="work-container">
+        
+        <!-- Section Header -->
+        <div class="section-header reveal-item">
+          <h2 class="section-title">WORK</h2>
+        </div>
+
+        <!-- Filter Tabs -->
+        <nav class="filter-tabs">
+          <button class="filter-btn active reveal-item" data-filter="all">ALL</button>
+          <button class="filter-btn reveal-item" data-filter="frontend">FRONTEND</button>
+          <button class="filter-btn reveal-item" data-filter="photoshop">PHOTOSHOP</button>
+          <button class="filter-btn reveal-item" data-filter="ai-assets">AI ASSETS</button>
+          <button class="filter-btn reveal-item" data-filter="thumbnails">THUMBNAILS</button>
+        </nav>
+
+        <!-- Clean Categorized Showcase Grid -->
+        <div class="projects-grid" id="projects-grid">
+          
+          <!-- 1. FRONTEND: HAVENIX ARCHITECTURE -->
+          <article class="project-card reveal-item" data-category="frontend">
+            <div class="mini-browser-shell">
+              <div class="browser-header-bar">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-address">sanchitsharma217-arch.github.io/Havenix/</div>
+                <span class="live-dot">LIVE ⚡</span>
+              </div>
+              <div class="mini-viewport">
+                <iframe src="https://sanchitsharma217-arch.github.io/Havenix/" title="Havenix Live Website" class="mini-live-iframe" loading="lazy"></iframe>
+              </div>
+            </div>
+            <div class="card-details-bar">
+              <a href="https://sanchitsharma217-arch.github.io/Havenix/" target="_blank" rel="noopener" class="card-title-link">
+                <h3 class="card-title">HAVENIX Architecture Studio <span class="arrow-icon">↗</span></h3>
+              </a>
+            </div>
+          </article>
+
+          <!-- 2. PHOTOSHOP SHOWCASE CARD -->
+          <article class="project-card gallery-trigger-card reveal-item" data-category="photoshop" data-gallery="photoshop">
+            <div class="card-image-wrapper">
+              <img src="work/photoshop/work-photoshop-1.png" alt="Photoshop Artworks Collection" loading="lazy">
+              <span class="collection-badge">1 ARTWORK 🖼️</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Photoshop Artworks <span class="arrow-icon">↗</span></h3>
+            </div>
+          </article>
+
+          <!-- 3. AI ASSETS SHOWCASE CARD -->
+          <article class="project-card gallery-trigger-card reveal-item" data-category="ai-assets" data-gallery="ai-assets">
+            <div class="card-image-wrapper">
+              <img src="work/ai-assets/fetc-ai-asset-1.jpg" alt="AI Assets Collection" loading="lazy">
+              <span class="collection-badge">6 ASSETS 🖼️</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">AI Asset Collection <span class="arrow-icon">↗</span></h3>
+            </div>
+          </article>
+
+          <!-- 4. THUMBNAILS SHOWCASE CARD -->
+          <article class="project-card gallery-trigger-card reveal-item" data-category="thumbnails" data-gallery="thumbnails">
+            <div class="card-image-wrapper">
+              <img src="work/thumbnails/business-thumb-1.jpg" alt="YouTube Thumbnails Collection" loading="lazy">
+              <span class="collection-badge">9 THUMBNAILS 🎬</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">YouTube Thumbnails <span class="arrow-icon">↗</span></h3>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+      <div class="about-container">
+        
+        <div class="about-header reveal-item">
+          <h2 class="section-title">ABOUT</h2>
+        </div>
+
+        <div class="about-grid">
+          
+          <!-- Left Column: Bio & Info -->
+          <div class="about-info-col reveal-item">
+            <h3 class="about-name">SANCHIT SHARMA</h3>
+            <div class="about-roles">
+              <span class="role-badge">AI GRAPHIC DESIGNER</span>
+              <span class="multiply-symbol">×</span>
+              <span class="role-badge">FRONTEND WEB DESIGNER</span>
+            </div>
+
+            <p class="about-bio">
+              Passionate about bridging high-end digital art with seamless web interactivity. I specialize in crafting ultra-modern visual assets, high-conversion thumbnails, and immersive web experiences using cutting-edge design tools and modern frontend web frameworks.
+            </p>
+
+            <div class="about-stats-grid">
+              <div class="stat-card">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Custom Aesthetics</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">AI + WEB</span>
+                <span class="stat-label">Creative Synergy</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Profile Photo Card -->
+          <div class="about-photo-col reveal-item">
+            <div class="photo-card-frame">
+              <div class="photo-inner-wrapper">
+                <img src="images/about-portrait.jpg" alt="Sanchit Sharma Portrait" class="profile-photo">
+              </div>
+              <div class="photo-glow-border"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+      <div class="services-container">
+        
+        <div class="section-header reveal-item">
+          <h2 class="section-title">SERVICES</h2>
+        </div>
+
+        <div class="services-list">
+          
+          <!-- Service 01 -->
+          <div class="service-row reveal-item">
+            <div class="service-number">01</div>
+            <div class="service-content">
+              <h3 class="service-name">FRONTEND WEB DESIGN</h3>
+              <p class="service-desc">
+                Bespoke interactive web applications, high-performance user interfaces, dynamic scroll animations, and responsive web experiences built with modern frameworks.
+              </p>
+            </div>
+            <div class="service-arrow">↗</div>
+          </div>
+
+          <!-- Service 02 -->
+          <div class="service-row reveal-item">
+            <div class="service-number">02</div>
+            <div class="service-content">
+              <h3 class="service-name">PHOTOSHOP</h3>
+              <p class="service-desc">
+                High-end digital image retouching, advanced photo compositing, poster artwork, creative visual storytelling, and professional asset manipulation.
+              </p>
+            </div>
+            <div class="service-arrow">↗</div>
+          </div>
+
+          <!-- Service 03 -->
+          <div class="service-row reveal-item">
+            <div class="service-number">03</div>
+            <div class="service-content">
+              <h3 class="service-name">AI ASSETS</h3>
+              <p class="service-desc">
+                Next-gen AI graphic creation, 3D conceptual assets, sci-fi renders, custom generative artwork, and futuristic visual assets tailored for digital media.
+              </p>
+            </div>
+            <div class="service-arrow">↗</div>
+          </div>
+
+          <!-- Service 04 -->
+          <div class="service-row reveal-item">
+            <div class="service-number">04</div>
+            <div class="service-content">
+              <h3 class="service-name">THUMBNAIL DESIGN</h3>
+              <p class="service-desc">
+                High-CTR YouTube thumbnails, gaming & tech stream covers, content branding, and high-impact visual hooks optimized for maximum click-through rate.
+              </p>
+            </div>
+            <div class="service-arrow">↗</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+      <div class="contact-container">
+        
+        <div class="section-header reveal-item">
+          <h2 class="section-title">CONTACT</h2>
+        </div>
+
+        <div class="contact-hero-content reveal-item">
+          <h3 class="contact-headline">
+            HAVE A PROJECT<br>IN MIND?
+          </h3>
+          <p class="contact-subline">
+            LET'S CREATE SOMETHING.
+          </p>
+
+          <button class="get-in-touch-btn" id="get-in-touch-btn">
+            <span class="btn-text">GET IN TOUCH</span>
+            <span class="btn-glow"></span>
+          </button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="portfolio-footer reveal-item">
+          <div class="footer-brand">SANCHIT SHARMA</div>
+          <div class="footer-tagline">AI GRAPHIC DESIGNER × FRONTEND WEB DESIGNER</div>
+          <div class="footer-copy">© 2026 SANCHIT SHARMA. ALL RIGHTS RESERVED.</div>
+        </footer>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Interactive Full-Screen Gallery Viewer Modal -->
+  <div id="gallery-modal" class="gallery-modal">
+    <div class="gallery-backdrop"></div>
+    <div class="gallery-container">
+      <button id="gallery-close" class="gallery-close" aria-label="Close Gallery">&times;</button>
+
+      <!-- Navigation Arrows -->
+      <button id="gallery-prev" class="gallery-nav prev" aria-label="Previous Image">&#10094;</button>
+      <button id="gallery-next" class="gallery-nav next" aria-label="Next Image">&#10095;</button>
+
+      <!-- Main Active Slide Display -->
+      <div class="gallery-slide">
+        <img id="gallery-main-img" src="" alt="Gallery Image">
+      </div>
+
+      <!-- Gallery Footer Info & Thumbnail Strip -->
+      <div class="gallery-footer">
+        <div class="gallery-info">
+          <span id="gallery-counter" class="gallery-counter">1 / 6</span>
+          <h3 id="gallery-title" class="gallery-title">AI Asset Concept 01</h3>
+        </div>
+        <div id="gallery-thumbnails-strip" class="gallery-thumbnails-strip"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Form Modal -->
+  <div id="contact-modal" class="contact-modal">
+    <div class="contact-backdrop"></div>
+    <div class="contact-modal-box">
+      <button id="contact-close" class="contact-close" aria-label="Close Contact Modal">&times;</button>
+
+      <h3 class="contact-modal-title">LET'S CONNECT</h3>
+      <p class="contact-modal-subtitle">Tell me about your project, idea, or visual design needs.</p>
+
+      <form id="contact-form" class="contact-form">
+        <div class="form-group">
+          <label for="contact-name">YOUR NAME</label>
+          <input type="text" id="contact-name" name="name" placeholder="John Doe" required>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-email">YOUR EMAIL</label>
+          <input type="email" id="contact-email" name="email" placeholder="john@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-message">PROJECT DETAILS</label>
+          <textarea id="contact-message" name="message" rows="4" placeholder="Describe your project, timeline, and goals..." required></textarea>
+        </div>
+
+        <button type="submit" class="submit-msg-btn">
+          <span class="btn-text">SEND MESSAGE</span>
+        </button>
+      </form>
+
+      <div id="form-success-msg" class="form-success-msg hidden">
+        <span class="success-icon">✓</span>
+        <h4>MESSAGE SENT!</h4>
+        <p>Thank you for reaching out, Sanchit will get back to you shortly.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
