@@ -401,7 +401,7 @@ window.addEventListener('keydown', (e) => {
   }
 });
 
-// INTERACTIVE PROCEDURAL IK SPIDER CURSOR FOLLOWER
+// INTERACTIVE PROCEDURAL IK SPIDER CURSOR / TOUCH FOLLOWER
 (function initSpiderEngine() {
   const spiderCanvas = document.createElement('canvas');
   spiderCanvas.id = 'spider-canvas';
@@ -437,10 +437,20 @@ window.addEventListener('keydown', (e) => {
     });
   }
 
+  function updateMouseFromTouch(e) {
+    if (e.touches && e.touches.length > 0) {
+      mouse.x = e.touches[0].clientX;
+      mouse.y = e.touches[0].clientY;
+    }
+  }
+
   window.addEventListener('mousemove', (e) => {
     mouse.x = e.clientX;
     mouse.y = e.clientY;
   });
+
+  window.addEventListener('touchmove', updateMouseFromTouch, { passive: true });
+  window.addEventListener('touchstart', updateMouseFromTouch, { passive: true });
 
   function resizeSpiderCanvas() {
     const dpr = window.devicePixelRatio || 1;
