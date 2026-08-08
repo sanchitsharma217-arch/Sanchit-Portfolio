@@ -660,11 +660,19 @@ body {
 }
 
 .about-bio {
-  font-size: 1.15rem;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: 2.5rem;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.about-bio p {
+  margin-bottom: 1.2rem;
+}
+
+.about-bio p:last-child {
+  margin-bottom: 0;
 }
 
 .about-stats-grid {
