@@ -210,7 +210,8 @@ filterBtns.forEach(btn => {
 // Gallery Data Collections
 const galleryCollections = {
   'photoshop': [
-    { src: 'work/photoshop/work-photoshop-1.png', title: 'Photoshop Art Composition' }
+    { src: 'work/photoshop/work-photoshop-1.png', title: 'Photoshop Art Composition' },
+    { src: 'work/photoshop/work-photoshop-2.png', title: 'Sneaker Commercial Artwork' }
   ],
   'ai-assets': [
     { src: 'work/ai-assets/fetc-ai-asset-1.jpg', title: 'AI Asset Concept 01' },
