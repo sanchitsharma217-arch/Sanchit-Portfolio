@@ -218,8 +218,7 @@ const galleryCollections = {
     { src: 'work/ai-assets/fetc-ai-asset-2.png', title: 'AI Rendered Character 02' },
     { src: 'work/ai-assets/fetc-ai-asset-3.png', title: 'Futuristic AI Environment 03' },
     { src: 'work/ai-assets/fetc-ai-asset-4.png', title: 'Sci-Fi Cybernetic Asset 04' },
-    { src: 'work/ai-assets/fetc-ai-asset-5.jpg', title: 'Abstract Motion Asset 05' },
-    { src: 'work/ai-assets/work-ai-assets-1.jpg', title: 'AI Digital Artwork 06' }
+    { src: 'work/ai-assets/fetc-ai-asset-5.jpg', title: 'Abstract Motion Asset 05' }
   ],
   'thumbnails': [
     { src: 'work/thumbnails/business-thumb-3.jpg', title: 'Growth & Tech Cover #1' },
