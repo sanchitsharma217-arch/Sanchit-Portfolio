@@ -221,15 +221,11 @@ const galleryCollections = {
     { src: 'work/ai-assets/work-ai-assets-1.jpg', title: 'AI Digital Artwork 06' }
   ],
   'thumbnails': [
-    { src: 'work/thumbnails/business-thumb-1.jpg', title: 'Business Tech Thumbnail #1' },
-    { src: 'work/thumbnails/business-thumb-2.jpg', title: 'Business Strategy Cover #2' },
-    { src: 'work/thumbnails/business-thumb-3.jpg', title: 'Growth & Tech Cover #3' },
-    { src: 'work/thumbnails/business-thumb-4.jpg', title: 'Finance Tech Cover #4' },
-    { src: 'work/thumbnails/gaming-thumb-1.jpg', title: 'Gaming Esports Cover #1' },
-    { src: 'work/thumbnails/gaming-thumb-2.jpg', title: 'High-Octane Gaming Cover #2' },
-    { src: 'work/thumbnails/gaming-thumb-3.jpg', title: 'Pro Streamer Cover #3' },
-    { src: 'work/thumbnails/gaming-thumb-4.jpg', title: 'Ultimate Gaming Showcase #4' },
-    { src: 'work/thumbnails/work-thumbnails-1.jpg', title: 'Creative YouTube Thumbnail' }
+    { src: 'work/thumbnails/business-thumb-3.jpg', title: 'Growth & Tech Cover #1' },
+    { src: 'work/thumbnails/business-thumb-4.jpg', title: 'Finance Tech Cover #2' },
+    { src: 'work/thumbnails/gaming-thumb-2.jpg', title: 'High-Octane Gaming Cover #3' },
+    { src: 'work/thumbnails/gaming-thumb-3.jpg', title: 'Pro Streamer Cover #4' },
+    { src: 'work/thumbnails/gaming-thumb-4.jpg', title: 'Ultimate Gaming Showcase #5' }
   ]
 };
 
