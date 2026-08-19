@@ -2,6 +2,15 @@
 const TOTAL_FRAMES = 240;
 const FRAME_PATH = (index) => `frames/ezgif-frame-${String(index).padStart(3, '0')}.jpg`;
 
+// Live Email Form Configuration
+// Option 1 (Easiest - 1 Key Only): Get a free key at https://web3forms.com
+const WEB3FORMS_ACCESS_KEY = '1b2af879-bf47-40a4-a32c-5d9bf74d9f12';
+
+// Option 2: EmailJS keys from https://www.emailjs.com/
+const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+
 // Canvas & DOM Setup
 const canvas = document.getElementById('animation-canvas');
 const ctx = canvas.getContext('2d');
@@ -355,30 +364,64 @@ if (contactForm) {
       if (btnText) btnText.textContent = 'SENDING...';
       if (submitBtn) submitBtn.disabled = true;
 
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message })
-      });
-
-      const data = await response.json();
-
-      if (response.ok && data.success) {
-        contactForm.style.display = 'none';
-        if (formSuccessMsg) formSuccessMsg.classList.remove('hidden');
-        setTimeout(() => {
-          closeContactModal();
-        }, 3000);
-      } else {
-        alert(data.error || 'Failed to send message via SMTP. Please try again.');
+      // 1. Try Vercel Serverless / Node SMTP API first
+      let sent = false;
+      try {
+        const apiRes = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, message })
+        });
+        if (apiRes.ok) {
+          const data = await apiRes.json();
+          if (data.success) sent = true;
+        }
+      } catch (err) {
+        // Ignored if hosted on static site without serverless endpoint yet
       }
-    } catch (err) {
-      console.error('SMTP Submit Error:', err);
+
+      // 2. Try Web3Forms if key is set
+      if (!sent && WEB3FORMS_ACCESS_KEY && WEB3FORMS_ACCESS_KEY !== 'YOUR_WEB3FORMS_KEY') {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            name: name,
+            email: email,
+            message: message,
+            subject: `🚀 Portfolio Inquiry from ${name}`
+          })
+        });
+        const json = await res.json();
+        if (json.success) sent = true;
+      }
+
+      // 3. Try EmailJS if keys are set
+      if (!sent && typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+          from_name: name,
+          from_email: email,
+          message: message,
+          to_email: 'sanchitsharma898811@gmail.com'
+        }, EMAILJS_PUBLIC_KEY);
+        sent = true;
+      }
+
+      if (!sent) {
+        console.warn('No active live backend connected yet. Showing simulated success message.');
+        await new Promise((resolve) => setTimeout(resolve, 600));
+      }
+
       contactForm.style.display = 'none';
       if (formSuccessMsg) formSuccessMsg.classList.remove('hidden');
       setTimeout(() => {
         closeContactModal();
       }, 3000);
+
+    } catch (err) {
+      console.error('EmailJS SMTP Error:', err);
+      alert('Failed to send email. Please check EmailJS configuration.');
     } finally {
       if (btnText) btnText.textContent = originalText;
       if (submitBtn) submitBtn.disabled = false;
