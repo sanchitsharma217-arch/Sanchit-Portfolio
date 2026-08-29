@@ -32,6 +32,40 @@
   <!-- Top Loader Progress Line -->
   <div id="loader-bar" class="loader-bar"></div>
 
+  <!-- Floating Frosted Glass Header Navigation Bar -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="#hero" class="nav-brand">
+        <div class="brand-avatar">
+          <img src="images/about-portrait.jpg" alt="Sanchit Sharma" class="brand-avatar-img">
+        </div>
+        <div class="brand-info">
+          <span class="brand-title">SANCHIT SHARMA</span>
+          <span class="brand-status"><span class="status-dot"></span> AVAILABLE</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="#work" class="nav-link" data-section="work"><span class="link-num">01</span> WORK</a>
+        <a href="#about" class="nav-link" data-section="about"><span class="link-num">02</span> ABOUT</a>
+        <a href="#services" class="nav-link" data-section="services"><span class="link-num">03</span> SERVICES</a>
+        <a href="#contact" class="nav-link" data-section="contact"><span class="link-num">04</span> CONTACT</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-cta-btn spotlight-btn" id="nav-talk-btn">
+          <span class="btn-text">LET'S TALK ↗</span>
+          <span class="spotlight-layer"></span>
+          <span class="spotlight-border"></span>
+        </button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
   <!-- Fullscreen Canvas Animation Background -->
   <canvas id="animation-canvas"></canvas>
 
@@ -59,13 +93,15 @@
         </p>
 
         <div class="hero-cta-group">
-          <a href="#work" class="explore-btn" id="explore-btn">
+          <a href="#work" class="explore-btn spotlight-btn" id="explore-btn">
             <span class="btn-text">EXPLORE WORK</span>
-            <span class="btn-glow"></span>
+            <span class="spotlight-layer"></span>
+            <span class="spotlight-border"></span>
           </a>
-          <button class="hero-talk-btn" id="hero-talk-btn">
+          <button class="hero-talk-btn spotlight-btn" id="hero-talk-btn">
             <span class="btn-text">LET'S TALK ↗</span>
-            <span class="btn-glow"></span>
+            <span class="spotlight-layer"></span>
+            <span class="spotlight-border"></span>
           </button>
         </div>
       </div>
@@ -434,6 +470,58 @@
           </article>
 
         </div>
+
+        <!-- Interactive Photoshop Retouching & AI Art Comparison Lab -->
+        <div class="before-after-section reveal-item">
+          <div class="before-after-header">
+            <div class="ba-badge">
+              <span class="badge-pulse"></span>
+              <span class="ba-badge-text">INTERACTIVE VISUAL STUDIO</span>
+            </div>
+            <h3 class="ba-title">PHOTOSHOP RETOUCH &amp; COMPOSITING LAB</h3>
+            <p class="ba-sub">Drag the interactive split-slider left &amp; right to reveal the transformation from the raw concept into the final polished Photoshop masterpiece.</p>
+          </div>
+
+          <div class="ba-card-wrapper" id="ba-container">
+            <div class="ba-image-container">
+              <!-- After (Full Retouched Masterpiece) -->
+              <img src="work/photoshop/work-photoshop-2.png" alt="After: Final Retouched Sneaker Commercial Artwork" class="ba-image ba-image-after">
+              <span class="ba-tag ba-tag-after">FINAL MASTERPIECE 🎨</span>
+
+              <!-- Before (Raw Concept Image) inside clipped container -->
+              <div class="ba-before-wrapper" id="ba-before-wrapper">
+                <img src="work/photoshop/work-photoshop-2.png" alt="Before: Raw Base Asset Composition" class="ba-image ba-image-before">
+                <span class="ba-tag ba-tag-before">RAW CONCEPT ⚙️</span>
+              </div>
+
+              <!-- Draggable Split Divider Handle -->
+              <div class="ba-handle" id="ba-handle">
+                <div class="ba-handle-line"></div>
+                <div class="ba-handle-knob">
+                  <span class="ba-arrow left">⮜</span>
+                  <span class="ba-divider">❘</span>
+                  <span class="ba-arrow right">⮞</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="ba-info-bar">
+              <div class="ba-info-item">
+                <span class="ba-label">TECHNIQUE</span>
+                <span class="ba-val">Multi-Layer Photo Manipulation &amp; Cinematic Lighting</span>
+              </div>
+              <div class="ba-info-item">
+                <span class="ba-label">SOFTWARE</span>
+                <span class="ba-val">Adobe Photoshop • Camera Raw • Neural Filters</span>
+              </div>
+              <div class="ba-info-hint">
+                <span class="pulse-icon">👆</span>
+                <span>Drag Slider to Compare</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -549,31 +637,356 @@
 
         </div>
 
-        <!-- 4-Step Agency Workflow -->
+        <!-- Dual-Track Agency Workflow Marquee -->
         <div class="workflow-block reveal-item">
-          <h3 class="workflow-title-main">HOW WE WORK</h3>
-          <div class="workflow-grid">
-            <div class="workflow-card">
-              <span class="workflow-number">01</span>
-              <h4 class="workflow-step-name">Discovery & Strategy</h4>
-              <p class="workflow-step-desc">Deconstructing your goals, aesthetic vision, and audience to build a clear roadmap.</p>
+          <div class="workflow-header">
+            <span class="workflow-pill-badge">DUAL-STREAM CREATIVE SYSTEM</span>
+            <h3 class="workflow-title-main">HOW WE WORK</h3>
+            <p class="workflow-subtitle">Two specialized pipelines engineered for visionary graphic artistry and high-performance frontend web development.</p>
+          </div>
+
+          <!-- TRACK 1: GRAPHIC DESIGN & AI ARTISTRY (Left Scrolling) -->
+          <div class="workflow-stream-section">
+            <div class="stream-label">
+              <span class="stream-dot stream-dot-art"></span>
+              <span class="stream-name">TRACK 01 // GRAPHIC DESIGN, PHOTOSHOP &amp; AI ARTISTRY</span>
+              <span class="stream-direction">FLOW ➔</span>
             </div>
-            <div class="workflow-card">
-              <span class="workflow-number">02</span>
-              <h4 class="workflow-step-name">UI/UX & Visual Identity</h4>
-              <p class="workflow-step-desc">Crafting tailored design systems, custom generative graphics, and responsive layouts.</p>
-            </div>
-            <div class="workflow-card">
-              <span class="workflow-number">03</span>
-              <h4 class="workflow-step-name">Frontend Engineering</h4>
-              <p class="workflow-step-desc">Building clean semantic code, 60fps dynamic motion, and mobile-first performance.</p>
-            </div>
-            <div class="workflow-card">
-              <span class="workflow-number">04</span>
-              <h4 class="workflow-step-name">Launch & Optimization</h4>
-              <p class="workflow-step-desc">Auditing speed, responsiveness, and SEO to ensure a seamless production deployment.</p>
+            
+            <div class="workflow-marquee-wrapper track-left">
+              <div class="workflow-marquee-track scroll-left">
+                
+                <!-- Card 01 -->
+                <div class="workflow-card">
+                  <div class="workflow-card-top">
+                    <span class="workflow-badge badge-art">PHASE 01</span>
+                    <span class="workflow-icon">🎯</span>
+                  </div>
+                  <div class="workflow-num">01</div>
+                  <h4 class="workflow-step-name">Creative Direction &amp; Moodboarding</h4>
+                  <p class="workflow-step-desc">Deconstructing aesthetic goals, color palettes, visual narratives, and target demographic psychology to forge a distinctive direction.</p>
+                  <div class="workflow-tags">
+                    <span class="w-tag">Moodboarding</span>
+                    <span class="w-tag">Brand Strategy</span>
+                    <span class="w-tag">Color Theory</span>
+                  </div>
+                </div>
+
+                <!-- Card 02 -->
+                <div class="workflow-card">
+                  <div class="workflow-card-top">
+                    <span class="workflow-badge badge-art">PHASE 02</span>
+                    <span class="workflow-icon">🤖</span>
+                  </div>
+                  <div class="workflow-num">02</div>
+                  <h4 class="workflow-step-name">AI Asset &amp; Concept Generation</h4>
+                  <p class="workflow-step-desc">Synthesizing futuristic sci-fi visuals, 3D character concepts, and bespoke prompt engineering tailored for modern brand narratives.</p>
+                  <div class="workflow-tags">
+                    <span class="w-tag">Midjourney</span>
+                    <span class="w-tag">3D Concepts</span>
+                    <span class="w-tag">Prompt Craft</span>
+                  </div>
+                </div>
+
+                <!-- Card 03 -->
+                <div class="workflow-card">
+                  <div class="workflow-card-top">
+                    <span class="workflow-badge badge-art">PHASE 03</span>
+                    <span class="workflow-icon">🎨</span>
+                  </div>
+                  <div class="workflow-num">03</div>
+                  <h4 class="workflow-step-name">Photoshop Retouch &amp; Compositing</h4>
+                  <p class="workflow-step-desc">Masterful photo manipulation, lighting corrections, seamless texture blending, and cinematic color grading to turn concepts into museum-grade art.</p>
+                  <div class="workflow-tags">
+                    <span class="w-tag">Compositing</span>
+                    <span class="w-tag">Retouching</span>
+                    <span class="w-tag">Color Grading</span>
+                  </div>
+                </div>
+
+                <!-- Card 04 -->
+                <div class="workflow-card">
+                  <div class="workflow-card-top">
+                    <span class="workflow-badge badge-art">PHASE 04</span>
+                    <span class="workflow-icon">🎬</span>
+                  </div>
+                  <div class="workflow-num">04</div>
+                  <h4 class="workflow-step-name">High-CTR Thumbnails &amp; Visuals</h4>
+                  <p class="workflow-step-desc">Engineering high-impact YouTube covers, commercial posters, stream branding, and visual hooks optimized for maximum engagement.</p>
+                  <div class="workflow-tags">
+                    <span class="w-tag">YouTube Covers</span>
+                    <span class="w-tag">Poster Art</span>
+                    <span class="w-tag">High CTR</span>
+                  </div>
+                </div>
+
+                <!-- Card 05 -->
+                <div class="workflow-card">
+                  <div class="workflow-card-top">
+                    <span class="workflow-badge badge-art">PHASE 05</span>
+                    <span class="workflow-icon">💎</span>
+                  </div>
+                  <div class="workflow-num">05</div>
+                  <h4 class="workflow-step-name">High-Res Master Asset Export</h4>
+                  <p class="workflow-step-desc">Delivering full resolution production packages across vector SVGs, layered PSDs, transparent PNGs, and print-ready CMYK/RGB profiles.</p>
+                  <div class="workflow-tags">
+                    <span class="w-tag">CMYK / RGB</span>
+                    <span class="w-tag">Vector SVGs</span>
+                    <span class="w-tag">Master PSDs</span>
+                  </div>
+                </div>
+
+                <!-- DUPLICATE SET FOR TRACK 1 INFINITE LOOP -->
+                <div class="workflow-card" aria-hidden="true">
+                  <div class="workflow-card-top">
+                    <span class="workflow-badge badge-art">PHASE 01</span>
+                    <span class="workflow-icon">🎯</span>
+                  </div>
+                  <div class="workflow-num">01</div>
+                  <h4 class="workflow-step-name">Creative Direction &amp; Moodboarding</h4>
+                  <p class="workflow-step-desc">Deconstructing aesthetic goals, color palettes, visual narratives, and target demographic psychology to forge a distinctive direction.</p>
+                  <div class="workflow-tags">
+                    <span class="w-tag">Moodboarding</span>
+                    <span class="w-tag">Brand Strategy</span>
+                    <span class="w-tag">Color Theory</span>
+                  </div>
+                </div>
+
+                <div class="workflow-card" aria-hidden="true">
+                  <div class="workflow-card-top">
+                    <span class="workflow-badge badge-art">PHASE 02</span>
+                    <span class="workflow-icon">🤖</span>
+                  </div>
+                  <div class="workflow-num">02</div>
+                  <h4 class="workflow-step-name">AI Asset &amp; Concept Generation</h4>
+                  <p class="workflow-step-desc">Synthesizing futuristic sci-fi visuals, 3D character concepts, and bespoke prompt engineering tailored for modern brand narratives.</p>
+                  <div class="workflow-tags">
+                    <span class="w-tag">Midjourney</span>
+                    <span class="w-tag">3D Concepts</span>
+                    <span class="w-tag">Prompt Craft</span>
+                  </div>
+                </div>
+
+                <div class="workflow-card" aria-hidden="true">
+                  <div class="workflow-card-top">
+                    <span class="workflow-badge badge-art">PHASE 03</span>
+                    <span class="workflow-icon">🎨</span>
+                  </div>
+                  <div class="workflow-num">03</div>
+                  <h4 class="workflow-step-name">Photoshop Retouch &amp; Compositing</h4>
+                  <p class="workflow-step-desc">Masterful photo manipulation, lighting corrections, seamless texture blending, and cinematic color grading to turn concepts into museum-grade art.</p>
+                  <div class="workflow-tags">
+                    <span class="w-tag">Compositing</span>
+                    <span class="w-tag">Retouching</span>
+                    <span class="w-tag">Color Grading</span>
+                  </div>
+                </div>
+
+                <div class="workflow-card" aria-hidden="true">
+                  <div class="workflow-card-top">
+                    <span class="workflow-badge badge-art">PHASE 04</span>
+                    <span class="workflow-icon">🎬</span>
+                  </div>
+                  <div class="workflow-num">04</div>
+                  <h4 class="workflow-step-name">High-CTR Thumbnails &amp; Visuals</h4>
+                  <p class="workflow-step-desc">Engineering high-impact YouTube covers, commercial posters, stream branding, and visual hooks optimized for maximum engagement.</p>
+                  <div class="workflow-tags">
+                    <span class="w-tag">YouTube Covers</span>
+                    <span class="w-tag">Poster Art</span>
+                    <span class="w-tag">High CTR</span>
+                  </div>
+                </div>
+
+                <div class="workflow-card" aria-hidden="true">
+                  <div class="workflow-card-top">
+                    <span class="workflow-badge badge-art">PHASE 05</span>
+                    <span class="workflow-icon">💎</span>
+                  </div>
+                  <div class="workflow-num">05</div>
+                  <h4 class="workflow-step-name">High-Res Master Asset Export</h4>
+                  <p class="workflow-step-desc">Delivering full resolution production packages across vector SVGs, layered PSDs, transparent PNGs, and print-ready CMYK/RGB profiles.</p>
+                  <div class="workflow-tags">
+                    <span class="w-tag">CMYK / RGB</span>
+                    <span class="w-tag">Vector SVGs</span>
+                    <span class="w-tag">Master PSDs</span>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
+
+          <!-- TRACK 2: FRONTEND WEB DESIGN & MOTION (Right Scrolling) -->
+          <div class="workflow-stream-section">
+            <div class="stream-label">
+              <span class="stream-dot stream-dot-web"></span>
+              <span class="stream-name">TRACK 02 // FRONTEND WEB DESIGN, UI/UX &amp; 60FPS MOTION</span>
+              <span class="stream-direction">⮜ FLOW</span>
+            </div>
+
+            <div class="workflow-marquee-wrapper track-right">
+              <div class="workflow-marquee-track scroll-right">
+                
+                <!-- Card 01 -->
+                <div class="workflow-card">
+                  <div class="workflow-card-top">
+                    <span class="workflow-badge badge-web">PHASE 01</span>
+                    <span class="workflow-icon">📐</span>
+                  </div>
+                  <div class="workflow-num">01</div>
+                  <h4 class="workflow-step-name">Discovery &amp; UI Wireframing</h4>
+                  <p class="workflow-step-desc">Architecting site blueprints, user journey mapping, responsive layout wireframing, and interactive UI component planning.</p>
+                  <div class="workflow-tags">
+                    <span class="w-tag">Architecture</span>
+                    <span class="w-tag">User Journeys</span>
+                    <span class="w-tag">Wireframes</span>
+                  </div>
+                </div>
+
+                <!-- Card 02 -->
+                <div class="workflow-card">
+                  <div class="workflow-card-top">
+                    <span class="workflow-badge badge-web">PHASE 02</span>
+                    <span class="workflow-icon">💎</span>
+                  </div>
+                  <div class="workflow-num">02</div>
+                  <h4 class="workflow-step-name">UI/UX &amp; Design Systems</h4>
+                  <p class="workflow-step-desc">Crafting tailored design systems, futuristic dark glassmorphic styling, typography tokens, and high-fidelity interactive prototypes.</p>
+                  <div class="workflow-tags">
+                    <span class="w-tag">Figma Systems</span>
+                    <span class="w-tag">Glassmorphism</span>
+                    <span class="w-tag">Typography</span>
+                  </div>
+                </div>
+
+                <!-- Card 03 -->
+                <div class="workflow-card">
+                  <div class="workflow-card-top">
+                    <span class="workflow-badge badge-web">PHASE 03</span>
+                    <span class="workflow-icon">⚡</span>
+                  </div>
+                  <div class="workflow-num">03</div>
+                  <h4 class="workflow-step-name">60FPS Canvas &amp; Kinetic Motion</h4>
+                  <p class="workflow-step-desc">High-DPI HTML5 canvas rendering, custom Lerp scroll interpolation, procedural IK physics, and silky micro-animations.</p>
+                  <div class="workflow-tags">
+                    <span class="w-tag">Canvas 2D</span>
+                    <span class="w-tag">Lerp Physics</span>
+                    <span class="w-tag">60 FPS Motion</span>
+                  </div>
+                </div>
+
+                <!-- Card 04 -->
+                <div class="workflow-card">
+                  <div class="workflow-card-top">
+                    <span class="workflow-badge badge-web">PHASE 04</span>
+                    <span class="workflow-icon">🛠️</span>
+                  </div>
+                  <div class="workflow-num">04</div>
+                  <h4 class="workflow-step-name">Clean Modular Engineering</h4>
+                  <p class="workflow-step-desc">Writing pure Vanilla ES6+ architecture, responsive CSS Grid/Flexbox, cross-browser compatibility, and lightweight zero-bloat code.</p>
+                  <div class="workflow-tags">
+                    <span class="w-tag">Vanilla ES6+</span>
+                    <span class="w-tag">CSS3 Grid</span>
+                    <span class="w-tag">Zero Bloat</span>
+                  </div>
+                </div>
+
+                <!-- Card 05 -->
+                <div class="workflow-card">
+                  <div class="workflow-card-top">
+                    <span class="workflow-badge badge-web">PHASE 05</span>
+                    <span class="workflow-icon">🚀</span>
+                  </div>
+                  <div class="workflow-num">05</div>
+                  <h4 class="workflow-step-name">Speed Auditing &amp; Deployment</h4>
+                  <p class="workflow-step-desc">Core Web Vitals speed optimization, technical SEO indexing, mobile device testing, and seamless live server deployment.</p>
+                  <div class="workflow-tags">
+                    <span class="w-tag">Speed Audit</span>
+                    <span class="w-tag">SEO Ready</span>
+                    <span class="w-tag">Live Deploy</span>
+                  </div>
+                </div>
+
+                <!-- DUPLICATE SET FOR TRACK 2 INFINITE LOOP -->
+                <div class="workflow-card" aria-hidden="true">
+                  <div class="workflow-card-top">
+                    <span class="workflow-badge badge-web">PHASE 01</span>
+                    <span class="workflow-icon">📐</span>
+                  </div>
+                  <div class="workflow-num">01</div>
+                  <h4 class="workflow-step-name">Discovery &amp; UI Wireframing</h4>
+                  <p class="workflow-step-desc">Architecting site blueprints, user journey mapping, responsive layout wireframing, and interactive UI component planning.</p>
+                  <div class="workflow-tags">
+                    <span class="w-tag">Architecture</span>
+                    <span class="w-tag">User Journeys</span>
+                    <span class="w-tag">Wireframes</span>
+                  </div>
+                </div>
+
+                <div class="workflow-card" aria-hidden="true">
+                  <div class="workflow-card-top">
+                    <span class="workflow-badge badge-web">PHASE 02</span>
+                    <span class="workflow-icon">💎</span>
+                  </div>
+                  <div class="workflow-num">02</div>
+                  <h4 class="workflow-step-name">UI/UX &amp; Design Systems</h4>
+                  <p class="workflow-step-desc">Crafting tailored design systems, futuristic dark glassmorphic styling, typography tokens, and high-fidelity interactive prototypes.</p>
+                  <div class="workflow-tags">
+                    <span class="w-tag">Figma Systems</span>
+                    <span class="w-tag">Glassmorphism</span>
+                    <span class="w-tag">Typography</span>
+                  </div>
+                </div>
+
+                <div class="workflow-card" aria-hidden="true">
+                  <div class="workflow-card-top">
+                    <span class="workflow-badge badge-web">PHASE 03</span>
+                    <span class="workflow-icon">⚡</span>
+                  </div>
+                  <div class="workflow-num">03</div>
+                  <h4 class="workflow-step-name">60FPS Canvas &amp; Kinetic Motion</h4>
+                  <p class="workflow-step-desc">High-DPI HTML5 canvas rendering, custom Lerp scroll interpolation, procedural IK physics, and silky micro-animations.</p>
+                  <div class="workflow-tags">
+                    <span class="w-tag">Canvas 2D</span>
+                    <span class="w-tag">Lerp Physics</span>
+                    <span class="w-tag">60 FPS Motion</span>
+                  </div>
+                </div>
+
+                <div class="workflow-card" aria-hidden="true">
+                  <div class="workflow-card-top">
+                    <span class="workflow-badge badge-web">PHASE 04</span>
+                    <span class="workflow-icon">🛠️</span>
+                  </div>
+                  <div class="workflow-num">04</div>
+                  <h4 class="workflow-step-name">Clean Modular Engineering</h4>
+                  <p class="workflow-step-desc">Writing pure Vanilla ES6+ architecture, responsive CSS Grid/Flexbox, cross-browser compatibility, and lightweight zero-bloat code.</p>
+                  <div class="workflow-tags">
+                    <span class="w-tag">Vanilla ES6+</span>
+                    <span class="w-tag">CSS3 Grid</span>
+                    <span class="w-tag">Zero Bloat</span>
+                  </div>
+                </div>
+
+                <div class="workflow-card" aria-hidden="true">
+                  <div class="workflow-card-top">
+                    <span class="workflow-badge badge-web">PHASE 05</span>
+                    <span class="workflow-icon">🚀</span>
+                  </div>
+                  <div class="workflow-num">05</div>
+                  <h4 class="workflow-step-name">Speed Auditing &amp; Deployment</h4>
+                  <p class="workflow-step-desc">Core Web Vitals speed optimization, technical SEO indexing, mobile device testing, and seamless live server deployment.</p>
+                  <div class="workflow-tags">
+                    <span class="w-tag">Speed Audit</span>
+                    <span class="w-tag">SEO Ready</span>
+                    <span class="w-tag">Live Deploy</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
         </div>
 
       </div>
@@ -595,9 +1008,10 @@
             LET'S CREATE SOMETHING EXCEPTIONAL.
           </p>
 
-          <button class="get-in-touch-btn" id="get-in-touch-btn">
+          <button class="get-in-touch-btn spotlight-btn" id="get-in-touch-btn">
             <span class="btn-text">GET IN TOUCH</span>
-            <span class="btn-glow"></span>
+            <span class="spotlight-layer"></span>
+            <span class="spotlight-border"></span>
           </button>
         </div>
 

@@ -728,7 +728,234 @@ function initIframeLoaders() {
 }
 initIframeLoaders();
 
+// INTERACTIVE BEFORE & AFTER RETOUCHING SLIDER CONTROLLER
+function initBeforeAfterSlider() {
+  const container = document.getElementById('ba-container');
+  const beforeWrapper = document.getElementById('ba-before-wrapper');
+  const handle = document.getElementById('ba-handle');
+  const beforeImg = beforeWrapper ? beforeWrapper.querySelector('.ba-image-before') : null;
+
+  if (!container || !beforeWrapper || !handle) return;
+
+  let isDragging = false;
+
+  function syncImageWidth() {
+    if (beforeImg) {
+      beforeImg.style.width = container.offsetWidth + 'px';
+    }
+  }
+
+  function setSliderPosition(xCoord) {
+    const rect = container.getBoundingClientRect();
+    let offsetX = xCoord - rect.left;
+    let percentage = (offsetX / rect.width) * 100;
+    percentage = Math.max(5, Math.min(95, percentage));
+
+    beforeWrapper.style.width = `${percentage}%`;
+    handle.style.left = `${percentage}%`;
+  }
+
+  function onPointerMove(e) {
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    setSliderPosition(clientX);
+  }
+
+  container.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    setSliderPosition(e.clientX);
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    setSliderPosition(e.clientX);
+  });
+
+  window.addEventListener('mouseup', () => {
+    isDragging = false;
+  });
+
+  // Touch Support for Mobile
+  container.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    if (e.touches.length > 0) {
+      setSliderPosition(e.touches[0].clientX);
+    }
+  }, { passive: true });
+
+  window.addEventListener('touchmove', (e) => {
+    if (!isDragging || !e.touches || e.touches.length === 0) return;
+    setSliderPosition(e.touches[0].clientX);
+  }, { passive: true });
+
+  window.addEventListener('touchend', () => {
+    isDragging = false;
+  });
+
+  // Hover guidance on desktop when not dragging
+  container.addEventListener('mousemove', (e) => {
+    if (!isDragging) {
+      setSliderPosition(e.clientX);
+    }
+  });
+
+  window.addEventListener('resize', syncImageWidth);
+  setTimeout(syncImageWidth, 300);
+}
+
+// FLOATING HEADER SCROLLSPY & MOBILE MENU CONTROLLER
+function initHeaderNavigation() {
+  const header = document.getElementById('site-header');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const navLinksContainer = document.getElementById('nav-links');
+  const navTalkBtn = document.getElementById('nav-talk-btn');
+
+  // Mobile Menu Toggle
+  if (mobileMenuBtn && navLinksContainer) {
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinksContainer.classList.toggle('open');
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinksContainer.classList.remove('open');
+      });
+    });
+  }
+
+  // Connect Nav Let's Talk button to Contact Modal
+  if (navTalkBtn) {
+    navTalkBtn.addEventListener('click', () => {
+      const contactBtn = document.getElementById('get-in-touch-btn') || document.getElementById('hero-talk-btn');
+      if (contactBtn) {
+        contactBtn.click();
+      } else {
+        const contactSec = document.getElementById('contact');
+        if (contactSec) contactSec.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+
+  // Scrollspy to highlight active section
+  const sections = document.querySelectorAll('section[id]');
+  function updateScrollspy() {
+    const scrollPos = window.scrollY + 200;
+
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const id = section.getAttribute('id');
+
+      if (scrollPos >= top && scrollPos < top + height) {
+        navLinks.forEach(link => {
+          if (link.getAttribute('data-section') === id) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateScrollspy, { passive: true });
+}
+
+// DIRECTION-AWARE SPOTLIGHT BUTTON CONTROLLER
+function initDirectionalSpotlightButtons() {
+  const spotlightButtons = document.querySelectorAll('.spotlight-btn, .footer-link-pill, .category-tab');
+
+  spotlightButtons.forEach(btn => {
+    // Ensure spotlight child layers exist
+    if (!btn.querySelector('.spotlight-layer')) {
+      const layer = document.createElement('span');
+      layer.className = 'spotlight-layer';
+      btn.appendChild(layer);
+    }
+    if (!btn.querySelector('.spotlight-border')) {
+      const border = document.createElement('span');
+      border.className = 'spotlight-border';
+      btn.appendChild(border);
+    }
+
+    let isInside = false;
+
+    function getRelativeCoordinates(e) {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      return { x, y, rect };
+    }
+
+    function calculateExitPerimeter(x, y, rect) {
+      const leftDist = x;
+      const rightDist = rect.width - x;
+      const topDist = y;
+      const bottomDist = rect.height - y;
+      const minDist = Math.min(leftDist, rightDist, topDist, bottomDist);
+
+      let exitX = x;
+      let exitY = y;
+
+      if (minDist === leftDist) exitX = -35;
+      else if (minDist === rightDist) exitX = rect.width + 35;
+      else if (minDist === topDist) exitY = -35;
+      else if (minDist === bottomDist) exitY = rect.height + 35;
+
+      return { exitX, exitY };
+    }
+
+    btn.addEventListener('mouseenter', (e) => {
+      isInside = true;
+      const { x, y } = getRelativeCoordinates(e);
+      // Immediately place spotlight at the entry edge without delay
+      btn.style.setProperty('--spotlight-x', `${x}px`);
+      btn.style.setProperty('--spotlight-y', `${y}px`);
+      btn.style.setProperty('--spotlight-scale', '1');
+      btn.style.setProperty('--spotlight-opacity', '1');
+    });
+
+    btn.addEventListener('mousemove', (e) => {
+      if (!isInside) return;
+      const { x, y } = getRelativeCoordinates(e);
+      btn.style.setProperty('--spotlight-x', `${x}px`);
+      btn.style.setProperty('--spotlight-y', `${y}px`);
+    });
+
+    btn.addEventListener('mouseleave', (e) => {
+      isInside = false;
+      const { x, y, rect } = getRelativeCoordinates(e);
+      const { exitX, exitY } = calculateExitPerimeter(x, y, rect);
+
+      // Glide spotlight towards the direction of exit and fade out
+      btn.style.setProperty('--spotlight-x', `${exitX}px`);
+      btn.style.setProperty('--spotlight-y', `${exitY}px`);
+      btn.style.setProperty('--spotlight-scale', '0.7');
+      btn.style.setProperty('--spotlight-opacity', '0');
+    });
+
+    // Touch Support for Mobile
+    btn.addEventListener('touchstart', (e) => {
+      if (e.touches.length > 0) {
+        const rect = btn.getBoundingClientRect();
+        const x = e.touches[0].clientX - rect.left;
+        const y = e.touches[0].clientY - rect.top;
+        btn.style.setProperty('--spotlight-x', `${x}px`);
+        btn.style.setProperty('--spotlight-y', `${y}px`);
+        btn.style.setProperty('--spotlight-opacity', '1');
+      }
+    }, { passive: true });
+
+    btn.addEventListener('touchend', () => {
+      btn.style.setProperty('--spotlight-opacity', '0');
+    });
+  });
+}
+
 // Start Application
 preloadImages();
 resizeCanvas();
 requestAnimationFrame(animLoop);
+initBeforeAfterSlider();
+initHeaderNavigation();
+initDirectionalSpotlightButtons();
