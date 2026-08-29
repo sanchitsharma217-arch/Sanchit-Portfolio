@@ -675,6 +675,23 @@ function animLoop() {
 window.addEventListener('resize', resizeCanvas);
 window.addEventListener('scroll', calculateTargetFrameFromScroll, { passive: true });
 
+// Smooth iframe lazy loading and fade-in
+function initIframeLoaders() {
+  document.querySelectorAll('.mini-viewport').forEach(viewport => {
+    const iframe = viewport.querySelector('.mini-live-iframe');
+    const loader = viewport.querySelector('.iframe-loader');
+    if (!iframe) return;
+
+    const handleLoaded = () => {
+      iframe.classList.add('is-loaded');
+      if (loader) loader.classList.add('loaded');
+    };
+
+    iframe.addEventListener('load', handleLoaded);
+  });
+}
+initIframeLoaders();
+
 // Start Application
 preloadImages();
 resizeCanvas();
