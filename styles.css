@@ -884,8 +884,9 @@ body {
   padding: 1.25rem 1.4rem;
   background: rgba(0, 0, 0, 0.65);
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.55rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   flex: 1;
 }
@@ -894,6 +895,7 @@ body {
   text-decoration: none;
   color: inherit;
   display: inline-block;
+  width: 100%;
 }
 
 .card-title-link:hover .card-title {
@@ -920,6 +922,19 @@ body {
   color: #ffffff;
   letter-spacing: -0.01em;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card-desc {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .project-card:hover {
@@ -1800,13 +1815,15 @@ body {
 .gallery-container {
   position: relative;
   z-index: 2;
-  width: 94vw;
+  width: 95vw;
+  max-width: 1400px;
   height: 92vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem;
+  overflow: hidden;
 }
 
 .gallery-close {
@@ -1825,25 +1842,26 @@ body {
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  z-index: 20;
+  z-index: 25;
 }
 
 .gallery-close:hover {
   background: #ffffff;
   color: #000000;
+  transform: scale(1.08);
 }
 
 .gallery-nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 54px;
-  height: 54px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.35);
   color: #ffffff;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1861,13 +1879,26 @@ body {
   transform: translateY(-50%) scale(1.1);
 }
 
-.gallery-slide {
-  flex: 1;
+/* Split Main Layout: Visual Viewer + Case Study Sheet */
+.gallery-main-layout {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 2rem;
   width: 100%;
-  max-height: 70vh;
+  flex: 1;
+  max-height: calc(92vh - 130px);
+  overflow: hidden;
+  padding: 0.5rem 3.5rem;
+}
+
+.gallery-slide {
+  flex: 1.3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  max-height: 100%;
   overflow: hidden;
 }
 
@@ -1875,9 +1906,137 @@ body {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  border-radius: 12px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
   transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Case Study Breakdown Sheet */
+.gallery-case-study {
+  flex: 1;
+  max-width: 520px;
+  height: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  background: rgba(15, 15, 22, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 1.75rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.cs-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #00ff88;
+  background: rgba(0, 255, 136, 0.1);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  padding: 0.3rem 0.85rem;
+  border-radius: 100px;
+  width: fit-content;
+}
+
+.cs-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.cs-desc {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.55;
+}
+
+.cs-details-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.cs-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cs-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.cs-val {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0;
+}
+
+.cs-cta-row {
+  display: flex;
+  margin-top: auto;
+}
+
+.cs-live-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.6rem;
+  border-radius: 100px;
+  background: #ffffff;
+  color: #000000;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cs-live-btn:hover {
+  background: #00ff88;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 255, 136, 0.4);
+}
+
+@media (max-width: 900px) {
+  .gallery-main-layout {
+    flex-direction: column;
+    padding: 0.5rem 0.5rem;
+    overflow-y: auto;
+  }
+  .gallery-slide {
+    flex: none;
+    height: 45vh;
+    width: 100%;
+  }
+  .gallery-case-study {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+    max-height: none;
+  }
 }
 
 .gallery-footer {
@@ -1905,7 +2064,7 @@ body {
 
 .gallery-title {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: #ffffff;
 }

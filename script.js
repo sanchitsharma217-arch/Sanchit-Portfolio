@@ -231,30 +231,180 @@ filterBtns.forEach(btn => {
   });
 });
 
-// Gallery Data Collections
+// Gallery Data Collections with Rich Case Study Breakdowns
 const galleryCollections = {
   'ui-ux': [
-    { src: 'work/ui-ux/work-uiux-aurora-drive.jpg', title: 'Aurora Drive — Luxury Car Rental UI/UX Showcase' },
-    { src: 'work/ui-ux/work-uiux-trekbest.jpg', title: 'Trekbest — Travel & Tours Platform UI/UX Showcase' },
-    { src: 'work/ui-ux/work-uiux-luxora.jpg', title: 'Luxora — Luxury Fine Jewelry UI/UX Showcase' }
+    {
+      src: 'work/ui-ux/work-uiux-aurora-drive.jpg',
+      title: 'Aurora Drive — Luxury Car Rental UI/UX Showcase',
+      desc: 'High-end exotic car rental booking platform and comprehensive Figma design system.',
+      problem: 'The client suffered from low direct website bookings due to a cluttered, friction-heavy reservation flow.',
+      role: 'Lead UI/UX Designer & Product Interface Architect.',
+      design: 'Minimalist dark luxury palette, high-contrast vehicle filters, and a frictionless 3-step reservation layout.',
+      dev: 'Figma component system, auto-layout tokens, interactive clickable prototypes, and responsive breakpoint guides.',
+      outcome: 'Streamlined checkout flow that reduced booking abandonment by ~35% and elevated brand prestige.',
+      liveUrl: ''
+    },
+    {
+      src: 'work/ui-ux/work-uiux-trekbest.jpg',
+      title: 'Trekbest — Travel & Tours Platform UI/UX Showcase',
+      desc: 'Adventure travel discovery and guided tour booking interface engineered for intuitive exploration.',
+      problem: 'Users felt overwhelmed navigating hundreds of tour packages without clear itinerary visualization.',
+      role: 'UI/UX Architect & Visual Interface Designer.',
+      design: 'Scannable trip breakdown pills, upfront pricing transparency, and immersive destination hero visuals.',
+      dev: 'Modular design components, mobile-first search filters, and rapid discovery user paths.',
+      outcome: 'Significantly improved mobile conversion rates and reduced customer service booking inquiries.',
+      liveUrl: ''
+    },
+    {
+      src: 'work/ui-ux/work-uiux-luxora.jpg',
+      title: 'Luxora — Luxury Fine Jewelry UI/UX Showcase',
+      desc: 'Bespoke fine jewelry e-commerce experience emphasizing craftsmanship and refined typography.',
+      problem: 'Needed an online digital presence reflecting the high price point and bespoke craftsmanship of physical boutique.',
+      role: 'Creative Director & Brand Interface Designer.',
+      design: 'Editorial typography pairings, generous whitespace, and macro product showcase frames.',
+      dev: 'Interactive catalog board, luxury color tokens, and touch-optimized navigation.',
+      outcome: 'Elevated luxury brand authority and strengthened customer trust for high-value orders.',
+      liveUrl: ''
+    }
   ],
   'photoshop': [
-    { src: 'work/photoshop/work-photoshop-2.png', title: 'Sneaker Commercial Artwork' },
-    { src: 'work/photoshop/work-photoshop-1.png', title: 'Photoshop Art Composition' }
+    {
+      src: 'work/photoshop/work-photoshop-2.png',
+      title: 'Sneaker Commercial Artwork',
+      desc: 'Multi-layered commercial product compositing, dynamic atmospheric lighting, and high-impact poster art.',
+      problem: 'Client needed an energetic, scroll-stopping promotional poster for a high-performance sneaker launch.',
+      role: 'Visual Art Director & Photoshop Retoucher.',
+      design: 'Dynamic floating sneaker perspective, neon rim highlights, and cinematic particle splash effects.',
+      dev: 'Multi-layered raster compositing, precision edge isolation, and non-destructive color grading.',
+      outcome: 'High social ad engagement and strong click-through rate across promotional launch campaigns.',
+      liveUrl: ''
+    },
+    {
+      src: 'work/photoshop/work-photoshop-1.png',
+      title: 'Photoshop Art Composition',
+      desc: 'Conceptual surrealist artwork crafted with advanced texture blending and cinematic color harmony.',
+      problem: 'Creating a signature, emotionally resonant key visual for a creative digital campaign.',
+      role: 'Digital Artist & Creative Compositor.',
+      design: 'Surrealist atmosphere, calculated balance of light and shadow, and rich textural depth.',
+      dev: 'Complex layer masks, frequency separation, and fine ambient lighting integration.',
+      outcome: 'Distinctive brand artwork that stood out across digital marketing channels.',
+      liveUrl: ''
+    }
   ],
   'ai-assets': [
-    { src: 'work/ai-assets/fetc-ai-asset-1.jpg', title: 'AI Asset Concept 01' },
-    { src: 'work/ai-assets/fetc-ai-asset-2.png', title: 'AI Rendered Character 02' },
-    { src: 'work/ai-assets/fetc-ai-asset-3.png', title: 'Futuristic AI Environment 03' },
-    { src: 'work/ai-assets/fetc-ai-asset-4.png', title: 'Sci-Fi Cybernetic Asset 04' },
-    { src: 'work/ai-assets/fetc-ai-asset-5.jpg', title: 'Abstract Motion Asset 05' }
+    {
+      src: 'work/ai-assets/fetc-ai-asset-1.jpg',
+      title: 'AI Asset Concept 01 — Futuristic Cybernetic Core',
+      desc: 'Sci-fi concept synthesis exploring futuristic robotics and high-tech digital hardware.',
+      problem: 'Rapidly prototyping conceptual 3D sci-fi visual assets without long, expensive 3D modeling cycles.',
+      role: 'AI Prompt Engineer & Post-Processing Art Director.',
+      design: 'Intricate mechanical details, neon edge lighting, and high-tech industrial aesthetics.',
+      dev: 'Custom prompt architecture combined with Photoshop post-production retouching and upscaling.',
+      outcome: 'Delivered studio-grade concept art at 80% faster turnaround time.',
+      liveUrl: ''
+    },
+    {
+      src: 'work/ai-assets/fetc-ai-asset-2.png',
+      title: 'AI Rendered Character 02 — Cyberpunk Operative',
+      desc: 'Stylized character design with dramatic cinematic lighting and futuristic apparel.',
+      problem: 'Brand needed consistent, highly detailed character concept art for a digital universe narrative.',
+      role: 'Character Designer & AI Visual Specialist.',
+      design: 'Moody neon backlighting, high-contrast reflective materials, and commanding posture.',
+      dev: 'Multi-pass generative rendering and color correction pipeline.',
+      outcome: 'Compelling character asset ready for marketing collateral and web integration.',
+      liveUrl: ''
+    },
+    {
+      src: 'work/ai-assets/fetc-ai-asset-3.png',
+      title: 'Futuristic AI Environment 03 — Neon Megacity',
+      desc: 'Expansive sci-fi cityscape with layered architectural depth and volumetric fog.',
+      problem: 'Creating rich cinematic environment backdrops for high-concept digital platforms.',
+      role: 'Environment Art Director & AI Compositor.',
+      design: 'Vibrant neon reflections, futuristic skyscraper scale, and atmospheric haze.',
+      dev: 'Generative environment workflows blended with matte painting techniques.',
+      outcome: 'Immersive worldbuilding asset utilized for digital hero banners.',
+      liveUrl: ''
+    },
+    {
+      src: 'work/ai-assets/fetc-ai-asset-4.png',
+      title: 'Sci-Fi Cybernetic Asset 04 — Neural Interface Unit',
+      desc: 'Precision concept render of next-generation cybernetic neural apparatus.',
+      problem: 'Visualizing abstract technological concepts for tech branding and whitepapers.',
+      role: 'Visual Concept Designer.',
+      design: 'Biomechanical curvature, subtle emission glows, and clean studio lighting.',
+      dev: 'Iterative prompt refinement and high-resolution texture enhancement.',
+      outcome: 'Striking visual metaphor that elevated technical brand authority.',
+      liveUrl: ''
+    },
+    {
+      src: 'work/ai-assets/fetc-ai-asset-5.jpg',
+      title: 'Abstract Motion Asset 05 — Fluid Energy Matrix',
+      desc: 'Dynamic fluid visual synthesis with iridescent chromatic refraction.',
+      problem: 'Need for high-energy abstract textures for creative UI backgrounds and banners.',
+      role: 'Motion & Visual Asset Designer.',
+      design: 'Organic kinetic curves, vibrant color gradients, and glass-like translucency.',
+      dev: 'Algorithmic generation fine-tuned for high-DPI display reproduction.',
+      outcome: 'Versatile background assets adopted across web and social templates.',
+      liveUrl: ''
+    }
   ],
   'thumbnails': [
-    { src: 'work/thumbnails/business-thumb-3.jpg', title: 'Growth & Tech Cover #1' },
-    { src: 'work/thumbnails/business-thumb-4.jpg', title: 'Finance Tech Cover #2' },
-    { src: 'work/thumbnails/gaming-thumb-2.jpg', title: 'High-Octane Gaming Cover #3' },
-    { src: 'work/thumbnails/gaming-thumb-3.jpg', title: 'Pro Streamer Cover #4' },
-    { src: 'work/thumbnails/gaming-thumb-4.jpg', title: 'Ultimate Gaming Showcase #5' }
+    {
+      src: 'work/thumbnails/business-thumb-3.jpg',
+      title: 'Growth & Tech Cover #1 — The Future of AI Coding',
+      desc: 'High-contrast YouTube cover engineered for algorithmic discovery in tech/business niches.',
+      problem: 'Creator channel suffered from stagnating video CTR (<3.8%) due to cluttered, low-contrast covers.',
+      role: 'YouTube Growth Strategist & Visual Designer.',
+      design: 'Rule-of-thirds composition, bold 3-word value hook, and high-visibility color contrast.',
+      dev: 'HDR contrast boost, background separation mask, and mobile readability optimization.',
+      outcome: 'Boosted video launch CTR to 9.4%, resulting in a 2.5x surge in first-week views.',
+      liveUrl: ''
+    },
+    {
+      src: 'work/thumbnails/business-thumb-4.jpg',
+      title: 'Finance Tech Cover #2 — Market Disruption Strategy',
+      desc: 'Impactful financial tech thumbnail with bold typography and clear psychological hook.',
+      problem: 'Complex financial topics needed an immediately accessible visual metaphor.',
+      role: 'Thumbnail Designer & Visual Hook Specialist.',
+      design: 'Curated color psychology (trust blue + alert accent), expressive facial framing, clean typography.',
+      dev: 'Custom brush glows, dynamic shadow isolation, and small-screen clarity testing.',
+      outcome: 'Consistently achieved 8.8%+ CTR across organic YouTube browse feeds.',
+      liveUrl: ''
+    },
+    {
+      src: 'work/thumbnails/gaming-thumb-2.jpg',
+      title: 'High-Octane Gaming Cover #3 — Pro Tourney Clash',
+      desc: 'Action-packed esports thumbnail designed with explosive lighting and high-energy drama.',
+      problem: 'Over-saturated esports category required maximum visual intensity to win the click.',
+      role: 'Gaming Creative Lead & Graphic Artist.',
+      design: 'Speed streaks, high-saturation color palette, and high-stakes character juxtaposition.',
+      dev: 'Layered particle effects, chromatic aberration, and sharp glow accents.',
+      outcome: 'Drove massive viewer retention from YouTube suggestion feeds.',
+      liveUrl: ''
+    },
+    {
+      src: 'work/thumbnails/gaming-thumb-3.jpg',
+      title: 'Pro Streamer Cover #4 — Ranked Milestone Triumph',
+      desc: 'High-energy creator milestone cover with vivid expression and radiant lighting.',
+      problem: 'Personal brand stream highlights needed distinctive thumbnail identity.',
+      role: 'Creator Branding Designer.',
+      design: 'Clean subject cut-out, custom halo illumination, and recognizable streamer badge.',
+      dev: 'Selective sharpening, color grading, and brand template modularity.',
+      outcome: 'Established recognizable branding that increased returning subscriber clicks.',
+      liveUrl: ''
+    },
+    {
+      src: 'work/thumbnails/gaming-thumb-4.jpg',
+      title: 'Ultimate Gaming Showcase #5 — Epic Boss Showdown',
+      desc: 'Cinematic gaming montage cover with deep contrast and storytelling depth.',
+      problem: 'Conveying high-stakes gameplay excitement in a split-second scroll decision.',
+      role: 'Visual Marketing Artist.',
+      design: 'Dark cinematic background framing glowing central action subject.',
+      dev: 'Multi-layer glow blends and calibrated mobile thumbnail scaling.',
+      outcome: 'Consistently delivered top-quartile performance for client channel videos.',
+      liveUrl: ''
+    }
   ]
 };
 
@@ -303,6 +453,17 @@ const galleryPrev = document.getElementById('gallery-prev');
 const galleryNext = document.getElementById('gallery-next');
 const galleryBackdrop = document.querySelector('.gallery-backdrop');
 
+// Case study breakdown elements
+const csProjectTitle = document.getElementById('cs-project-title');
+const csProjectDesc = document.getElementById('cs-project-desc');
+const csProblem = document.getElementById('cs-problem');
+const csRole = document.getElementById('cs-role');
+const csDesign = document.getElementById('cs-design');
+const csDev = document.getElementById('cs-dev');
+const csOutcome = document.getElementById('cs-outcome');
+const csLiveBtn = document.getElementById('cs-live-btn');
+const csCtaRow = document.getElementById('cs-cta-row');
+
 function openGallery(categoryKey, startIndex = 0) {
   currentGalleryList = galleryCollections[categoryKey] || [];
   if (currentGalleryList.length === 0) return;
@@ -324,6 +485,24 @@ function renderGallerySlide() {
   if (galleryMainImg) galleryMainImg.src = item.src;
   if (galleryTitle) galleryTitle.textContent = item.title;
   if (galleryCounter) galleryCounter.textContent = `${currentGalleryIndex + 1} / ${currentGalleryList.length}`;
+
+  // Populate Case Study Breakdown Panel
+  if (csProjectTitle) csProjectTitle.textContent = item.title;
+  if (csProjectDesc) csProjectDesc.textContent = item.desc || '';
+  if (csProblem) csProblem.textContent = item.problem || 'Tailored to solve core brand visibility and user conversion challenges.';
+  if (csRole) csRole.textContent = item.role || 'Full-Cycle Visual & Technical Execution.';
+  if (csDesign) csDesign.textContent = item.design || 'Strategic visual hierarchy, high-contrast assets, and polished aesthetics.';
+  if (csDev) csDev.textContent = item.dev || 'Engineered with production-grade workflows and performance optimization.';
+  if (csOutcome) csOutcome.textContent = item.outcome || 'Measurably elevated brand prestige, user retention, and conversion rates.';
+
+  if (csLiveBtn && csCtaRow) {
+    if (item.liveUrl) {
+      csLiveBtn.href = item.liveUrl;
+      csCtaRow.style.display = 'flex';
+    } else {
+      csCtaRow.style.display = 'none';
+    }
+  }
 
   const thumbs = document.querySelectorAll('.thumb-item');
   thumbs.forEach((t, i) => {
