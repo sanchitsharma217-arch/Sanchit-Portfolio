@@ -325,6 +325,7 @@ body {
   aspect-ratio: 16 / 10;
   overflow: hidden;
   width: 100%;
+  background: #141414;
 }
 
 .card-image-wrapper img {

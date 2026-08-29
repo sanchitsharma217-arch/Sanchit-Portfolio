@@ -258,6 +258,37 @@ const galleryCollections = {
   ]
 };
 
+// Preload all portfolio showcase and lightbox gallery images in background
+function preloadWorkImages() {
+  const allImageUrls = new Set();
+
+  document.querySelectorAll('.card-image-wrapper img').forEach(img => {
+    const src = img.getAttribute('src');
+    if (src) allImageUrls.add(src);
+  });
+
+  Object.values(galleryCollections).forEach(collection => {
+    collection.forEach(item => {
+      if (item.src) allImageUrls.add(item.src);
+    });
+  });
+
+  const loadAll = () => {
+    allImageUrls.forEach(url => {
+      const img = new Image();
+      img.decoding = 'async';
+      img.src = url;
+    });
+  };
+
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadAll);
+  } else {
+    setTimeout(loadAll, 100);
+  }
+}
+preloadWorkImages();
+
 // Gallery Modal State & Controls
 let currentGalleryList = [];
 let currentGalleryIndex = 0;
