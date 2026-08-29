@@ -397,7 +397,12 @@ function closeContactModal() {
   if (contactModal) contactModal.classList.remove('active');
 }
 
+const heroTalkBtn = document.getElementById('hero-talk-btn');
+const footerContactTrigger = document.getElementById('footer-contact-trigger');
+
 if (getInTouchBtn) getInTouchBtn.addEventListener('click', openContactModal);
+if (heroTalkBtn) heroTalkBtn.addEventListener('click', openContactModal);
+if (footerContactTrigger) footerContactTrigger.addEventListener('click', openContactModal);
 if (contactClose) contactClose.addEventListener('click', closeContactModal);
 if (contactBackdrop) contactBackdrop.addEventListener('click', closeContactModal);
 
