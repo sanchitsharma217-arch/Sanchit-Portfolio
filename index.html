@@ -54,6 +54,7 @@
         <nav class="filter-tabs">
           <button class="filter-btn active reveal-item" data-filter="all">ALL</button>
           <button class="filter-btn reveal-item" data-filter="frontend">FRONTEND</button>
+          <button class="filter-btn reveal-item" data-filter="ui-ux">UI/UX DESIGN</button>
           <button class="filter-btn reveal-item" data-filter="photoshop">PHOTOSHOP</button>
           <button class="filter-btn reveal-item" data-filter="ai-assets">AI ASSETS</button>
           <button class="filter-btn reveal-item" data-filter="thumbnails">THUMBNAILS</button>
@@ -62,8 +63,10 @@
         <!-- Clean Categorized Showcase Grid -->
         <div class="projects-grid" id="projects-grid">
           
-          <!-- 1. FRONTEND: HAVENIX ARCHITECTURE -->
-          <article class="project-card reveal-item" data-category="frontend">
+          <!-- ================= 🌟 "ALL" OVERVIEW SUMMARY CARDS (1 FROM EACH SECTION) ================= -->
+          
+          <!-- 1. ALL: FRONTEND SHOWCASE -->
+          <article class="project-card reveal-item" data-all-summary="true" data-category="frontend">
             <div class="mini-browser-shell">
               <div class="browser-header-bar">
                 <div class="browser-dots">
@@ -85,8 +88,77 @@
             </div>
           </article>
 
-          <!-- 2. FRONTEND: FETC WEBSITE -->
-          <article class="project-card reveal-item" data-category="frontend">
+          <!-- 2. ALL: UI/UX DESIGN SHOWCASE -->
+          <article class="project-card gallery-trigger-card reveal-item" data-all-summary="true" data-category="ui-ux" data-gallery="ui-ux" data-index="0">
+            <div class="card-image-wrapper">
+              <img src="work/ui-ux/work-uiux-aurora-drive.jpg" alt="UI/UX Design Case Studies" loading="lazy">
+              <span class="collection-badge">3 CASE STUDIES 🎨</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">UI/UX Design Systems <span class="arrow-icon">↗</span></h3>
+            </div>
+          </article>
+
+          <!-- 3. ALL: PHOTOSHOP SHOWCASE -->
+          <article class="project-card gallery-trigger-card reveal-item" data-all-summary="true" data-category="photoshop" data-gallery="photoshop" data-index="0">
+            <div class="card-image-wrapper">
+              <img src="work/photoshop/work-photoshop-2.png" alt="Photoshop Artworks Collection" loading="lazy">
+              <span class="collection-badge">2 ARTWORKS 🖼️</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Photoshop Artworks <span class="arrow-icon">↗</span></h3>
+            </div>
+          </article>
+
+          <!-- 4. ALL: AI ASSETS SHOWCASE -->
+          <article class="project-card gallery-trigger-card reveal-item" data-all-summary="true" data-category="ai-assets" data-gallery="ai-assets" data-index="0">
+            <div class="card-image-wrapper">
+              <img src="work/ai-assets/fetc-ai-asset-1.jpg" alt="AI Assets Collection" loading="lazy">
+              <span class="collection-badge">5 ASSETS 🤖</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">AI Asset Collection <span class="arrow-icon">↗</span></h3>
+            </div>
+          </article>
+
+          <!-- 5. ALL: THUMBNAILS SHOWCASE -->
+          <article class="project-card gallery-trigger-card reveal-item" data-all-summary="true" data-category="thumbnails" data-gallery="thumbnails" data-index="0">
+            <div class="card-image-wrapper">
+              <img src="work/thumbnails/business-thumb-3.jpg" alt="YouTube Thumbnails Collection" loading="lazy">
+              <span class="collection-badge">5 THUMBNAILS 🎬</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">YouTube Thumbnails <span class="arrow-icon">↗</span></h3>
+            </div>
+          </article>
+
+
+          <!-- ================= 📂 DETAILED CATEGORY ITEMS (EXPANDED ON TAB CLICK) ================= -->
+
+          <!-- FRONTEND DETAILED ITEMS -->
+          <article class="project-card reveal-item hidden" data-category-item="true" data-category="frontend">
+            <div class="mini-browser-shell">
+              <div class="browser-header-bar">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-address">sanchitsharma217-arch.github.io/Havenix/</div>
+                <span class="live-dot">LIVE ⚡</span>
+              </div>
+              <div class="mini-viewport">
+                <iframe src="https://sanchitsharma217-arch.github.io/Havenix/" title="Havenix Live Website" class="mini-live-iframe" loading="lazy"></iframe>
+              </div>
+            </div>
+            <div class="card-details-bar">
+              <a href="https://sanchitsharma217-arch.github.io/Havenix/" target="_blank" rel="noopener" class="card-title-link">
+                <h3 class="card-title">HAVENIX Architecture Studio <span class="arrow-icon">↗</span></h3>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card reveal-item hidden" data-category-item="true" data-category="frontend">
             <div class="mini-browser-shell">
               <div class="browser-header-bar">
                 <div class="browser-dots">
@@ -108,36 +180,157 @@
             </div>
           </article>
 
-          <!-- 2. PHOTOSHOP SHOWCASE CARD -->
-          <article class="project-card gallery-trigger-card reveal-item" data-category="photoshop" data-gallery="photoshop">
+          <!-- UI/UX DESIGN DETAILED ITEMS -->
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="ui-ux" data-gallery="ui-ux" data-index="0">
             <div class="card-image-wrapper">
-              <img src="work/photoshop/work-photoshop-2.png" alt="Photoshop Artworks Collection" loading="lazy">
-              <span class="collection-badge">2 ARTWORKS 🖼️</span>
+              <img src="work/ui-ux/work-uiux-aurora-drive.jpg" alt="Aurora Drive Luxury Car Rental UI/UX Board" loading="lazy">
+              <span class="collection-badge">CASE STUDY 🚗</span>
             </div>
             <div class="card-details-bar">
-              <h3 class="card-title">Photoshop Artworks <span class="arrow-icon">↗</span></h3>
+              <h3 class="card-title">Aurora Drive — Luxury Car Rental <span class="arrow-icon">↗</span></h3>
             </div>
           </article>
 
-          <!-- 3. AI ASSETS SHOWCASE CARD -->
-          <article class="project-card gallery-trigger-card reveal-item" data-category="ai-assets" data-gallery="ai-assets">
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="ui-ux" data-gallery="ui-ux" data-index="1">
             <div class="card-image-wrapper">
-              <img src="work/ai-assets/fetc-ai-asset-1.jpg" alt="AI Assets Collection" loading="lazy">
-              <span class="collection-badge">5 ASSETS 🖼️</span>
+              <img src="work/ui-ux/work-uiux-trekbest.jpg" alt="Trekbest Travel & Tours UI/UX Board" loading="lazy">
+              <span class="collection-badge">CASE STUDY 🏔️</span>
             </div>
             <div class="card-details-bar">
-              <h3 class="card-title">AI Asset Collection <span class="arrow-icon">↗</span></h3>
+              <h3 class="card-title">Trekbest — Travel & Tours Platform <span class="arrow-icon">↗</span></h3>
             </div>
           </article>
 
-          <!-- 4. THUMBNAILS SHOWCASE CARD -->
-          <article class="project-card gallery-trigger-card reveal-item" data-category="thumbnails" data-gallery="thumbnails">
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="ui-ux" data-gallery="ui-ux" data-index="2">
             <div class="card-image-wrapper">
-              <img src="work/thumbnails/business-thumb-3.jpg" alt="YouTube Thumbnails Collection" loading="lazy">
-              <span class="collection-badge">5 THUMBNAILS 🎬</span>
+              <img src="work/ui-ux/work-uiux-luxora.jpg" alt="Luxora Fine Jewelry UI/UX Board" loading="lazy">
+              <span class="collection-badge">CASE STUDY 💎</span>
             </div>
             <div class="card-details-bar">
-              <h3 class="card-title">YouTube Thumbnails <span class="arrow-icon">↗</span></h3>
+              <h3 class="card-title">Luxora — Luxury Fine Jewelry <span class="arrow-icon">↗</span></h3>
+            </div>
+          </article>
+
+          <!-- PHOTOSHOP DETAILED ITEMS -->
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="photoshop" data-gallery="photoshop" data-index="0">
+            <div class="card-image-wrapper">
+              <img src="work/photoshop/work-photoshop-2.png" alt="Sneaker Commercial Artwork" loading="lazy">
+              <span class="collection-badge">PHOTOSHOP 👟</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Sneaker Commercial Artwork <span class="arrow-icon">↗</span></h3>
+            </div>
+          </article>
+
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="photoshop" data-gallery="photoshop" data-index="1">
+            <div class="card-image-wrapper">
+              <img src="work/photoshop/work-photoshop-1.png" alt="Photoshop Art Composition" loading="lazy">
+              <span class="collection-badge">PHOTOSHOP 🎨</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Photoshop Art Composition <span class="arrow-icon">↗</span></h3>
+            </div>
+          </article>
+
+          <!-- AI ASSETS DETAILED ITEMS -->
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="ai-assets" data-gallery="ai-assets" data-index="0">
+            <div class="card-image-wrapper">
+              <img src="work/ai-assets/fetc-ai-asset-1.jpg" alt="AI Asset Concept 01" loading="lazy">
+              <span class="collection-badge">AI ASSET 🤖</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">AI Asset Concept 01 <span class="arrow-icon">↗</span></h3>
+            </div>
+          </article>
+
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="ai-assets" data-gallery="ai-assets" data-index="1">
+            <div class="card-image-wrapper">
+              <img src="work/ai-assets/fetc-ai-asset-2.png" alt="AI Rendered Character 02" loading="lazy">
+              <span class="collection-badge">AI ASSET 🤖</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">AI Rendered Character 02 <span class="arrow-icon">↗</span></h3>
+            </div>
+          </article>
+
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="ai-assets" data-gallery="ai-assets" data-index="2">
+            <div class="card-image-wrapper">
+              <img src="work/ai-assets/fetc-ai-asset-3.png" alt="Futuristic AI Environment 03" loading="lazy">
+              <span class="collection-badge">AI ASSET 🤖</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Futuristic AI Environment 03 <span class="arrow-icon">↗</span></h3>
+            </div>
+          </article>
+
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="ai-assets" data-gallery="ai-assets" data-index="3">
+            <div class="card-image-wrapper">
+              <img src="work/ai-assets/fetc-ai-asset-4.png" alt="Sci-Fi Cybernetic Asset 04" loading="lazy">
+              <span class="collection-badge">AI ASSET 🤖</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Sci-Fi Cybernetic Asset 04 <span class="arrow-icon">↗</span></h3>
+            </div>
+          </article>
+
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="ai-assets" data-gallery="ai-assets" data-index="4">
+            <div class="card-image-wrapper">
+              <img src="work/ai-assets/fetc-ai-asset-5.jpg" alt="Abstract Motion Asset 05" loading="lazy">
+              <span class="collection-badge">AI ASSET 🤖</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Abstract Motion Asset 05 <span class="arrow-icon">↗</span></h3>
+            </div>
+          </article>
+
+          <!-- THUMBNAILS DETAILED ITEMS -->
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="thumbnails" data-gallery="thumbnails" data-index="0">
+            <div class="card-image-wrapper">
+              <img src="work/thumbnails/business-thumb-3.jpg" alt="Growth & Tech Cover #1" loading="lazy">
+              <span class="collection-badge">THUMBNAIL 🎬</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Growth & Tech Cover #1 <span class="arrow-icon">↗</span></h3>
+            </div>
+          </article>
+
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="thumbnails" data-gallery="thumbnails" data-index="1">
+            <div class="card-image-wrapper">
+              <img src="work/thumbnails/business-thumb-4.jpg" alt="Finance Tech Cover #2" loading="lazy">
+              <span class="collection-badge">THUMBNAIL 🎬</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Finance Tech Cover #2 <span class="arrow-icon">↗</span></h3>
+            </div>
+          </article>
+
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="thumbnails" data-gallery="thumbnails" data-index="2">
+            <div class="card-image-wrapper">
+              <img src="work/thumbnails/gaming-thumb-2.jpg" alt="High-Octane Gaming Cover #3" loading="lazy">
+              <span class="collection-badge">THUMBNAIL 🎬</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">High-Octane Gaming Cover #3 <span class="arrow-icon">↗</span></h3>
+            </div>
+          </article>
+
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="thumbnails" data-gallery="thumbnails" data-index="3">
+            <div class="card-image-wrapper">
+              <img src="work/thumbnails/gaming-thumb-3.jpg" alt="Pro Streamer Cover #4" loading="lazy">
+              <span class="collection-badge">THUMBNAIL 🎬</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Pro Streamer Cover #4 <span class="arrow-icon">↗</span></h3>
+            </div>
+          </article>
+
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="thumbnails" data-gallery="thumbnails" data-index="4">
+            <div class="card-image-wrapper">
+              <img src="work/thumbnails/gaming-thumb-4.jpg" alt="Ultimate Gaming Showcase #5" loading="lazy">
+              <span class="collection-badge">THUMBNAIL 🎬</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Ultimate Gaming Showcase #5 <span class="arrow-icon">↗</span></h3>
             </div>
           </article>
 

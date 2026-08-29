@@ -206,11 +206,26 @@ filterBtns.forEach(btn => {
     const filterValue = btn.getAttribute('data-filter');
 
     projectCards.forEach(card => {
+      const isAllSummary = card.getAttribute('data-all-summary') === 'true';
+      const isCategoryItem = card.getAttribute('data-category-item') === 'true';
       const category = card.getAttribute('data-category');
-      if (filterValue === 'all' || category === filterValue) {
-        card.classList.remove('hidden');
+
+      if (filterValue === 'all') {
+        if (isAllSummary) {
+          card.classList.remove('hidden');
+          card.classList.add('revealed');
+        } else {
+          card.classList.add('hidden');
+        }
       } else {
-        card.classList.add('hidden');
+        if (isAllSummary) {
+          card.classList.add('hidden');
+        } else if (isCategoryItem && category === filterValue) {
+          card.classList.remove('hidden');
+          card.classList.add('revealed');
+        } else {
+          card.classList.add('hidden');
+        }
       }
     });
   });
@@ -218,6 +233,11 @@ filterBtns.forEach(btn => {
 
 // Gallery Data Collections
 const galleryCollections = {
+  'ui-ux': [
+    { src: 'work/ui-ux/work-uiux-aurora-drive.jpg', title: 'Aurora Drive — Luxury Car Rental UI/UX Showcase' },
+    { src: 'work/ui-ux/work-uiux-trekbest.jpg', title: 'Trekbest — Travel & Tours Platform UI/UX Showcase' },
+    { src: 'work/ui-ux/work-uiux-luxora.jpg', title: 'Luxora — Luxury Fine Jewelry UI/UX Showcase' }
+  ],
   'photoshop': [
     { src: 'work/photoshop/work-photoshop-2.png', title: 'Sneaker Commercial Artwork' },
     { src: 'work/photoshop/work-photoshop-1.png', title: 'Photoshop Art Composition' }
@@ -252,11 +272,11 @@ const galleryPrev = document.getElementById('gallery-prev');
 const galleryNext = document.getElementById('gallery-next');
 const galleryBackdrop = document.querySelector('.gallery-backdrop');
 
-function openGallery(categoryKey) {
+function openGallery(categoryKey, startIndex = 0) {
   currentGalleryList = galleryCollections[categoryKey] || [];
   if (currentGalleryList.length === 0) return;
 
-  currentGalleryIndex = 0;
+  currentGalleryIndex = Math.max(0, Math.min(currentGalleryList.length - 1, startIndex));
   renderGallerySlide();
   renderThumbnailsStrip();
   if (galleryModal) galleryModal.classList.add('active');
@@ -314,7 +334,9 @@ const galleryCards = document.querySelectorAll('.gallery-trigger-card');
 galleryCards.forEach(card => {
   card.addEventListener('click', () => {
     const category = card.getAttribute('data-gallery');
-    if (category) openGallery(category);
+    const indexAttr = card.getAttribute('data-index');
+    const startIndex = indexAttr !== null ? parseInt(indexAttr, 10) : 0;
+    if (category) openGallery(category, startIndex);
   });
 });
 
