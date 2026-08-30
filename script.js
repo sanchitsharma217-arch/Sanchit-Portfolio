@@ -627,7 +627,7 @@ if (contactForm) {
             name: name,
             email: email,
             message: message,
-            subject: `🚀 Portfolio Inquiry from ${name}`
+            subject: `Portfolio Project Inquiry from ${name}`
           })
         });
         const json = await res.json();

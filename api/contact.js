@@ -44,7 +44,7 @@ module.exports = async (req, res) => {
       from: `"${name}" <${smtpUser}>`,
       replyTo: email,
       to: recipientEmail,
-      subject: `🚀 Portfolio Inquiry from ${name}`,
+      subject: `Portfolio Project Inquiry from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; background: #0f0f0f; color: #ffffff; border-radius: 10px;">
           <h2 style="color: #ffffff; border-bottom: 1px solid #333; padding-bottom: 10px;">New Portfolio Project Inquiry</h2>

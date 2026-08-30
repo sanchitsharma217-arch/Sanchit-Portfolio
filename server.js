@@ -67,7 +67,7 @@ const server = http.createServer((req, res) => {
             from: `"${name}" <${process.env.SMTP_USER}>`,
             replyTo: email,
             to: process.env.RECIPIENT_EMAIL || process.env.SMTP_USER,
-            subject: `🚀 Portfolio Inquiry from ${name}`,
+            subject: `Portfolio Project Inquiry from ${name}`,
             html: `
               <div style="font-family: Arial, sans-serif; padding: 20px; background: #0f0f0f; color: #ffffff; border-radius: 10px;">
                 <h2 style="color: #ffffff; border-bottom: 1px solid #333; padding-bottom: 10px;">New Portfolio Project Inquiry</h2>
