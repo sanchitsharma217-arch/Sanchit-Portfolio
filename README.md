@@ -18,7 +18,7 @@
   - Custom Lerp interpolation (`0.15`) for Apple-level camera travel and liquid-smooth scrolling.
 
 - **💼 Categorized Portfolio Showcase Grid**:
-  - **Frontend Showcase**: Mini desktop browser screen displaying live iframe preview of [Havenix Architecture Studio](https://sanchitsharma217-arch.github.io/Havenix/) and FETC Web Platform.
+  - **Frontend Showcase**: Mini desktop browser screens displaying live iframe previews of [AuraVoyage Ultra-Luxury Travel Concierge](https://sanchitsharma217-arch.github.io/AuraVoyage/), [Verdora Luxury Botanical Maison](https://sanchitsharma217-arch.github.io/verdora/), and [Havenix Architecture Studio](https://sanchitsharma217-arch.github.io/Havenix/).
   - **UI/UX Design Systems**: High-resolution design boards for Aurora Drive (Luxury Car Rental), Trekbest (Travel & Tours), and Luxora (Fine Jewelry).
   - **Category Galleries**: Photoshop Artworks, AI Asset Collections, and YouTube Thumbnails.
   - **Full-Screen Gallery Viewer Modal**: Interactive lightbox slider with navigation arrows, thumbnail strip, slide counter, and keyboard controls.

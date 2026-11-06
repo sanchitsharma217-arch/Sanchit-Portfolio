@@ -38,6 +38,131 @@ body {
   background: rgba(255, 255, 255, 0.4);
 }
 
+/* ==========================================================================
+   CINEMATIC FULLSCREEN PRELOADER
+   ========================================================================== */
+.site-preloader {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100000;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.95s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.5s ease;
+  will-change: transform;
+}
+
+.site-preloader.is-loaded {
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+.preloader-backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.98) 75%);
+  pointer-events: none;
+}
+
+.preloader-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  max-width: 600px;
+}
+
+.preloader-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.preloader-tagline {
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+}
+
+.preloader-name {
+  font-family: 'Syne', 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0.2rem 0;
+  text-shadow: 0 0 35px rgba(255, 255, 255, 0.25);
+}
+
+.preloader-role {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: #00ff88;
+  text-transform: uppercase;
+  text-shadow: 0 0 15px rgba(0, 255, 136, 0.35);
+}
+
+.preloader-progress-wrap {
+  width: 300px;
+  max-width: 82vw;
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preloader-counter {
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  font-size: 3.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.preloader-track {
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.preloader-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #ffffff, #00ff88);
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.8);
+  transition: width 0.12s ease-out;
+}
+
+.preloader-status {
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 1.2rem;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
 /* Loader Bar */
 .loader-bar {
   position: fixed;
@@ -328,6 +453,13 @@ body {
   z-index: 999;
   pointer-events: none;
   display: block;
+}
+
+/* Fallback: Hide procedural cursor on touch devices & small screens */
+@media (hover: none) and (pointer: coarse), (max-width: 768px) {
+  #spider-canvas {
+    display: none !important;
+  }
 }
 
 /* Main Scrollable Content Container */
@@ -944,6 +1076,45 @@ body {
   position: relative;
   overflow: hidden;
   background: #000000;
+}
+
+/* Ambient Viewport Poster & Theming */
+.viewport-poster-backdrop {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: top center;
+  filter: brightness(0.65) blur(1.5px);
+  transform: scale(1.04);
+  opacity: 0.85;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.mini-live-iframe.is-loaded ~ .viewport-poster-backdrop,
+.mini-viewport.has-loaded .viewport-poster-backdrop {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Branded Ambient Themes for Loaders */
+.mini-viewport[data-theme="auravoyage"] .iframe-loader {
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.18) 0%, #0d0a04 85%);
+}
+.mini-viewport[data-theme="auravoyage"] .loader-spinner {
+  border-top-color: #d4af37;
+  border-right-color: rgba(212, 175, 55, 0.35);
+}
+.mini-viewport[data-theme="verdora"] .iframe-loader {
+  background: radial-gradient(circle at center, rgba(49, 91, 64, 0.3) 0%, #07100a 85%);
+}
+.mini-viewport[data-theme="verdora"] .loader-spinner {
+  border-top-color: #00ff88;
+  border-right-color: rgba(0, 255, 136, 0.35);
+}
+.mini-viewport[data-theme="havenix"] .iframe-loader {
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.12) 0%, #080808 85%);
 }
 
 .iframe-loader {

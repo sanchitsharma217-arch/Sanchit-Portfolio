@@ -17,6 +17,93 @@ const ctx = canvas.getContext('2d');
 const loaderBar = document.getElementById('loader-bar');
 const exploreBtn = document.getElementById('explore-btn');
 
+// Preloader DOM Elements & State
+const preloaderEl = document.getElementById('site-preloader');
+const preloaderCounter = document.getElementById('preloader-counter');
+const preloaderFill = document.getElementById('preloader-fill');
+const preloaderStatus = document.getElementById('preloader-status');
+
+let currentVisualProgress = 0;
+let targetVisualProgress = 0;
+let preloaderDismissed = false;
+
+// Lock scroll while preloader is active
+if (preloaderEl) {
+  document.body.style.overflow = 'hidden';
+}
+
+function updatePreloaderProgress() {
+  // Buffer first 45 frames (~18% of 240) to guarantee liquid-smooth initial scroll
+  const actualFraction = Math.min(1, loadedCount / 45);
+  targetVisualProgress = Math.max(targetVisualProgress, Math.round(actualFraction * 100));
+}
+
+function startPreloaderTicker() {
+  if (!preloaderEl) return;
+
+  const interval = setInterval(() => {
+    if (preloaderDismissed) {
+      clearInterval(interval);
+      return;
+    }
+
+    if (currentVisualProgress < targetVisualProgress) {
+      currentVisualProgress += Math.max(1, Math.ceil((targetVisualProgress - currentVisualProgress) * 0.22));
+    }
+
+    if (currentVisualProgress > 100) currentVisualProgress = 100;
+
+    if (preloaderCounter) {
+      preloaderCounter.textContent = `${String(Math.round(currentVisualProgress)).padStart(2, '0')}%`;
+    }
+    if (preloaderFill) {
+      preloaderFill.style.width = `${currentVisualProgress}%`;
+    }
+
+    if (currentVisualProgress >= 35 && preloaderStatus && preloaderStatus.textContent === 'INITIALIZING VISUAL ASSETS...') {
+      preloaderStatus.textContent = 'BUFFERING FRAME SEQUENCE...';
+    }
+
+    if (currentVisualProgress >= 80 && preloaderStatus && preloaderStatus.textContent === 'BUFFERING FRAME SEQUENCE...') {
+      preloaderStatus.textContent = 'COMPOSITING 3D SCENE...';
+    }
+
+    if (currentVisualProgress >= 100) {
+      clearInterval(interval);
+      dismissPreloader();
+    }
+  }, 28);
+
+  // Safety fallback: maximum 2.2 seconds so nobody is ever stuck
+  setTimeout(() => {
+    targetVisualProgress = 100;
+  }, 2100);
+}
+
+function dismissPreloader() {
+  if (preloaderDismissed || !preloaderEl) return;
+  preloaderDismissed = true;
+
+  if (preloaderStatus) {
+    preloaderStatus.textContent = 'STAGE READY // ENTERING';
+    preloaderStatus.style.color = '#00ff88';
+  }
+  if (preloaderCounter) {
+    preloaderCounter.textContent = '100%';
+  }
+  if (preloaderFill) {
+    preloaderFill.style.width = '100%';
+  }
+
+  setTimeout(() => {
+    preloaderEl.classList.add('is-loaded');
+    document.body.style.overflow = '';
+    document.querySelectorAll('.reveal-item').forEach(el => el.classList.add('revealed'));
+  }, 380);
+}
+
+startPreloaderTicker();
+
 // Animation State
 const images = new Array(TOTAL_FRAMES);
 let loadedCount = 0;
@@ -36,6 +123,7 @@ function preloadImages() {
       images[frameIndex] = img;
       loadedCount++;
       updateLoaderProgress();
+      updatePreloaderProgress();
 
       // Render 1st frame instantly
       if (!firstFrameLoaded && frameIndex === 0) {
@@ -48,6 +136,7 @@ function preloadImages() {
     img.onerror = () => {
       loadedCount++;
       updateLoaderProgress();
+      updatePreloaderProgress();
     };
   }
 }
@@ -679,6 +768,11 @@ window.addEventListener('keydown', (e) => {
 
 // INTERACTIVE PROCEDURAL IK SPIDER CURSOR / TOUCH FOLLOWER
 (function initSpiderEngine() {
+  const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches || window.innerWidth <= 768;
+  if (isTouchDevice) {
+    return; // Do not initialize canvas or event listeners on mobile touch devices
+  }
+
   const spiderCanvas = document.createElement('canvas');
   spiderCanvas.id = 'spider-canvas';
   document.body.appendChild(spiderCanvas);
@@ -899,6 +993,7 @@ function initIframeLoaders() {
 
     const handleLoaded = () => {
       iframe.classList.add('is-loaded');
+      viewport.classList.add('has-loaded');
       if (loader) loader.classList.add('loaded');
     };
 

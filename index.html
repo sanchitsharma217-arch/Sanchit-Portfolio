@@ -29,6 +29,27 @@
 </head>
 <body>
 
+  <!-- Cinematic Agency Preloader Screen -->
+  <aside id="site-preloader" class="site-preloader" aria-label="Loading Portfolio">
+    <div class="preloader-backdrop"></div>
+    <div class="preloader-content">
+      <div class="preloader-brand">
+        <span class="preloader-tagline">PORTFOLIO // 2026</span>
+        <h1 class="preloader-name">SANCHIT SHARMA</h1>
+        <p class="preloader-role">AI GRAPHIC DESIGNER &times; FRONTEND ARCHITECT</p>
+      </div>
+
+      <div class="preloader-progress-wrap">
+        <div class="preloader-counter" id="preloader-counter">00%</div>
+        <div class="preloader-track">
+          <div class="preloader-fill" id="preloader-fill"></div>
+        </div>
+      </div>
+
+      <div class="preloader-status" id="preloader-status">INITIALIZING VISUAL ASSETS...</div>
+    </div>
+  </aside>
+
   <!-- Top Loader Progress Line -->
   <div id="loader-bar" class="loader-bar"></div>
 
@@ -176,7 +197,7 @@
           
           <!-- ================= 🌟 "ALL" OVERVIEW SUMMARY CARDS (1 FROM EACH SECTION) ================= -->
           
-          <!-- 1. ALL: FRONTEND SHOWCASE (FLAGSHIP 01) -->
+          <!-- 1. ALL: FRONTEND SHOWCASE (FLAGSHIP 01 - AURAVOYAGE) -->
           <article class="project-card reveal-item" data-all-summary="true" data-category="frontend">
             <div class="mini-browser-shell">
               <div class="browser-header-bar">
@@ -185,38 +206,87 @@
                   <span class="dot yellow"></span>
                   <span class="dot green"></span>
                 </div>
-                <div class="browser-address">sanchitsharma217-arch.github.io/Havenix/</div>
+                <div class="browser-address">sanchitsharma217-arch.github.io/AuraVoyage/</div>
                 <span class="live-dot">LIVE PRODUCTION</span>
               </div>
-              <div class="mini-viewport">
+              <div class="mini-viewport" data-theme="auravoyage">
+                <div class="viewport-poster-backdrop" style="background-image: url('work/frontend/auravoyage-preview.png');"></div>
                 <div class="iframe-loader">
                   <div class="loader-spinner"></div>
                   <span class="loader-text">Loading Live Preview...</span>
                 </div>
-                <iframe src="https://sanchitsharma217-arch.github.io/Havenix/" title="Havenix Live Website" class="mini-live-iframe" loading="lazy"></iframe>
+                <iframe src="https://sanchitsharma217-arch.github.io/AuraVoyage/" title="AuraVoyage Live Website" class="mini-live-iframe" loading="lazy"></iframe>
               </div>
             </div>
             <div class="card-details-bar">
               <div class="card-tags-row">
-                <span class="card-tech-tag">HTML5 / CSS3</span>
-                <span class="card-tech-tag">Vanilla JS</span>
-                <span class="card-tech-tag">Live Architecture Site</span>
+                <span class="card-tech-tag">React 19</span>
+                <span class="card-tech-tag">TypeScript</span>
+                <span class="card-tech-tag">Tailwind v4</span>
+                <span class="card-tech-tag">Vite</span>
               </div>
-              <a href="https://sanchitsharma217-arch.github.io/Havenix/" target="_blank" rel="noopener" class="card-title-link">
-                <h3 class="card-title">HAVENIX Architecture Studio <span class="arrow-icon">↗</span></h3>
+              <a href="https://sanchitsharma217-arch.github.io/AuraVoyage/" target="_blank" rel="noopener" class="card-title-link">
+                <h3 class="card-title">AURAVOYAGE — Ultra-Luxury Travel Concierge <span class="arrow-icon">↗</span></h3>
               </a>
-              <p class="card-desc">Bespoke architecture studio platform featuring custom visual direction, kinetic motion, and a conversion-focused inquiry flow.</p>
+              <p class="card-desc">Bespoke high-luxury travel concierge and reservation engine featuring live destination telemetry, interactive 5-step trip configurator, and printable VIP boarding passes.</p>
               
               <!-- Concrete Mini Case-Study Specs -->
               <div class="card-spec-grid">
-                <div class="spec-row"><span class="spec-k">ROLE:</span> <span class="spec-v">UI/UX + Full Frontend Engineering</span></div>
-                <div class="spec-row"><span class="spec-k">STACK:</span> <span class="spec-v">HTML5, CSS3 Flex/Grid, ES6+ Vanilla</span></div>
-                <div class="spec-row"><span class="spec-k">FOCUS:</span> <span class="spec-v">Responsive Layout, Sub-1s Load Time, High Conversion</span></div>
+                <div class="spec-row"><span class="spec-k">ROLE:</span> <span class="spec-v">UI/UX Architect &amp; Frontend Engineering</span></div>
+                <div class="spec-row"><span class="spec-k">STACK:</span> <span class="spec-v">React 19, TypeScript 5, Tailwind CSS v4, Vite</span></div>
+                <div class="spec-row"><span class="spec-k">FEATURES:</span> <span class="spec-v">Live Weather Engine, Custom Trip Studio, VIP Boarding Pass</span></div>
               </div>
 
               <div class="card-actions-row">
-                <a href="https://sanchitsharma217-arch.github.io/Havenix/" target="_blank" rel="noopener" class="card-action-btn live-btn">LIVE SITE ↗</a>
-                <button class="card-action-btn cs-btn gallery-trigger-card" data-gallery="ui-ux" data-index="0">CASE STUDY DETAILS ↗</button>
+                <a href="https://sanchitsharma217-arch.github.io/AuraVoyage/" target="_blank" rel="noopener" class="card-action-btn live-btn">LIVE SITE ↗</a>
+                <a href="https://github.com/sanchitsharma217-arch/AuraVoyage" target="_blank" rel="noopener" class="card-action-btn cs-btn">GITHUB REPO ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. ALL: FRONTEND SHOWCASE (FLAGSHIP 02 - VERDORA) -->
+          <article class="project-card reveal-item" data-all-summary="true" data-category="frontend">
+            <div class="mini-browser-shell">
+              <div class="browser-header-bar">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-address">sanchitsharma217-arch.github.io/verdora/</div>
+                <span class="live-dot">LIVE STOREFRONT</span>
+              </div>
+              <div class="mini-viewport" data-theme="verdora">
+                <div class="viewport-poster-backdrop" style="background-image: url('work/frontend/verdora-preview.png');"></div>
+                <div class="iframe-loader">
+                  <div class="loader-spinner"></div>
+                  <span class="loader-text">Loading Live Storefront...</span>
+                </div>
+                <iframe src="https://sanchitsharma217-arch.github.io/verdora/" title="Verdora Live Website" class="mini-live-iframe" loading="lazy"></iframe>
+              </div>
+            </div>
+            <div class="card-details-bar">
+              <div class="card-tags-row">
+                <span class="card-tech-tag">React 19</span>
+                <span class="card-tech-tag">Framer Motion</span>
+                <span class="card-tech-tag">Tailwind CSS</span>
+                <span class="card-tech-tag">Editorial Grid</span>
+              </div>
+              <a href="https://sanchitsharma217-arch.github.io/verdora/" target="_blank" rel="noopener" class="card-title-link">
+                <h3 class="card-title">VERDORA — Luxury Botanical Maison <span class="arrow-icon">↗</span></h3>
+              </a>
+              <p class="card-desc">Fictional luxury botanical e-commerce maison and living flora showcase with fluid cart physics, interactive botanical vitality indices, and an automated plant doctor clinic.</p>
+              
+              <!-- Concrete Mini Case-Study Specs -->
+              <div class="card-spec-grid">
+                <div class="spec-row"><span class="spec-k">ROLE:</span> <span class="spec-v">Frontend Architect &amp; Interaction Designer</span></div>
+                <div class="spec-row"><span class="spec-k">STACK:</span> <span class="spec-v">React 19, Framer Motion, Tailwind CSS, Vite</span></div>
+                <div class="spec-row"><span class="spec-k">EXPERIENCE:</span> <span class="spec-v">18 Routes, Diagnostic Plant Doctor, Fluid Cart Drawer</span></div>
+              </div>
+
+              <div class="card-actions-row">
+                <a href="https://sanchitsharma217-arch.github.io/verdora/" target="_blank" rel="noopener" class="card-action-btn live-btn">LIVE STORE ↗</a>
+                <a href="https://github.com/sanchitsharma217-arch/verdora" target="_blank" rel="noopener" class="card-action-btn cs-btn">GITHUB REPO ↗</a>
               </div>
             </div>
           </article>
@@ -330,6 +400,95 @@
           <!-- ================= 📂 DETAILED CATEGORY ITEMS (EXPANDED ON TAB CLICK) ================= -->
 
           <!-- FRONTEND DETAILED ITEMS -->
+          <!-- 1. AURAVOYAGE -->
+          <article class="project-card reveal-item hidden" data-category-item="true" data-category="frontend">
+            <div class="mini-browser-shell">
+              <div class="browser-header-bar">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-address">sanchitsharma217-arch.github.io/AuraVoyage/</div>
+                <span class="live-dot">LIVE PRODUCTION</span>
+              </div>
+              <div class="mini-viewport" data-theme="auravoyage">
+                <div class="viewport-poster-backdrop" style="background-image: url('work/frontend/auravoyage-preview.png');"></div>
+                <div class="iframe-loader">
+                  <div class="loader-spinner"></div>
+                  <span class="loader-text">Loading Live Preview...</span>
+                </div>
+                <iframe src="https://sanchitsharma217-arch.github.io/AuraVoyage/" title="AuraVoyage Live Website" class="mini-live-iframe" loading="lazy"></iframe>
+              </div>
+            </div>
+            <div class="card-details-bar">
+              <div class="card-tags-row">
+                <span class="card-tech-tag">React 19</span>
+                <span class="card-tech-tag">TypeScript</span>
+                <span class="card-tech-tag">Tailwind v4</span>
+                <span class="card-tech-tag">Vite</span>
+              </div>
+              <a href="https://sanchitsharma217-arch.github.io/AuraVoyage/" target="_blank" rel="noopener" class="card-title-link">
+                <h3 class="card-title">AURAVOYAGE — Ultra-Luxury Travel Concierge <span class="arrow-icon">↗</span></h3>
+              </a>
+              <p class="card-desc">Bespoke high-luxury travel concierge and reservation engine featuring live destination telemetry, interactive 5-step trip configurator, and printable VIP boarding passes.</p>
+              <div class="card-spec-grid">
+                <div class="spec-row"><span class="spec-k">ROLE:</span> <span class="spec-v">UI/UX Architect &amp; Frontend Engineering</span></div>
+                <div class="spec-row"><span class="spec-k">STACK:</span> <span class="spec-v">React 19, TypeScript 5, Tailwind CSS v4, Vite</span></div>
+                <div class="spec-row"><span class="spec-k">FEATURES:</span> <span class="spec-v">Live Weather Engine, Custom Trip Studio, VIP Boarding Pass</span></div>
+              </div>
+              <div class="card-actions-row">
+                <a href="https://sanchitsharma217-arch.github.io/AuraVoyage/" target="_blank" rel="noopener" class="card-action-btn live-btn">LIVE SITE ↗</a>
+                <a href="https://github.com/sanchitsharma217-arch/AuraVoyage" target="_blank" rel="noopener" class="card-action-btn cs-btn">GITHUB REPO ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. VERDORA -->
+          <article class="project-card reveal-item hidden" data-category-item="true" data-category="frontend">
+            <div class="mini-browser-shell">
+              <div class="browser-header-bar">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-address">sanchitsharma217-arch.github.io/verdora/</div>
+                <span class="live-dot">LIVE STOREFRONT</span>
+              </div>
+              <div class="mini-viewport" data-theme="verdora">
+                <div class="viewport-poster-backdrop" style="background-image: url('work/frontend/verdora-preview.png');"></div>
+                <div class="iframe-loader">
+                  <div class="loader-spinner"></div>
+                  <span class="loader-text">Loading Live Storefront...</span>
+                </div>
+                <iframe src="https://sanchitsharma217-arch.github.io/verdora/" title="Verdora Live Website" class="mini-live-iframe" loading="lazy"></iframe>
+              </div>
+            </div>
+            <div class="card-details-bar">
+              <div class="card-tags-row">
+                <span class="card-tech-tag">React 19</span>
+                <span class="card-tech-tag">Framer Motion</span>
+                <span class="card-tech-tag">Tailwind CSS</span>
+                <span class="card-tech-tag">Editorial Grid</span>
+              </div>
+              <a href="https://sanchitsharma217-arch.github.io/verdora/" target="_blank" rel="noopener" class="card-title-link">
+                <h3 class="card-title">VERDORA — Luxury Botanical Maison <span class="arrow-icon">↗</span></h3>
+              </a>
+              <p class="card-desc">Fictional luxury botanical e-commerce maison and living flora showcase with fluid cart physics, interactive botanical vitality indices, and an automated plant doctor clinic.</p>
+              <div class="card-spec-grid">
+                <div class="spec-row"><span class="spec-k">ROLE:</span> <span class="spec-v">Frontend Architect &amp; Interaction Designer</span></div>
+                <div class="spec-row"><span class="spec-k">STACK:</span> <span class="spec-v">React 19, Framer Motion, Tailwind CSS, Vite</span></div>
+                <div class="spec-row"><span class="spec-k">EXPERIENCE:</span> <span class="spec-v">18 Routes, Diagnostic Plant Doctor, Fluid Cart Drawer</span></div>
+              </div>
+              <div class="card-actions-row">
+                <a href="https://sanchitsharma217-arch.github.io/verdora/" target="_blank" rel="noopener" class="card-action-btn live-btn">LIVE STORE ↗</a>
+                <a href="https://github.com/sanchitsharma217-arch/verdora" target="_blank" rel="noopener" class="card-action-btn cs-btn">GITHUB REPO ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. HAVENIX -->
           <article class="project-card reveal-item hidden" data-category-item="true" data-category="frontend">
             <div class="mini-browser-shell">
               <div class="browser-header-bar">
@@ -339,9 +498,10 @@
                   <span class="dot green"></span>
                 </div>
                 <div class="browser-address">sanchitsharma217-arch.github.io/Havenix/</div>
-                <span class="live-dot">LIVE</span>
+                <span class="live-dot">LIVE PRODUCTION</span>
               </div>
-              <div class="mini-viewport">
+              <div class="mini-viewport" data-theme="havenix">
+                <div class="viewport-poster-backdrop" style="background-image: url('work/frontend/havenix.png');"></div>
                 <div class="iframe-loader">
                   <div class="loader-spinner"></div>
                   <span class="loader-text">Loading Live Preview...</span>
@@ -350,37 +510,24 @@
               </div>
             </div>
             <div class="card-details-bar">
+              <div class="card-tags-row">
+                <span class="card-tech-tag">HTML5 / CSS3</span>
+                <span class="card-tech-tag">Vanilla JS</span>
+                <span class="card-tech-tag">Live Architecture Site</span>
+              </div>
               <a href="https://sanchitsharma217-arch.github.io/Havenix/" target="_blank" rel="noopener" class="card-title-link">
                 <h3 class="card-title">HAVENIX Architecture Studio <span class="arrow-icon">↗</span></h3>
               </a>
               <p class="card-desc">Bespoke architecture studio web experience featuring custom visual direction, interactive motion, and a conversion-focused layout.</p>
-            </div>
-          </article>
-
-          <article class="project-card reveal-item hidden" data-category-item="true" data-category="frontend">
-            <div class="mini-browser-shell">
-              <div class="browser-header-bar">
-                <div class="browser-dots">
-                  <span class="dot red"></span>
-                  <span class="dot yellow"></span>
-                  <span class="dot green"></span>
-                </div>
-                <div class="browser-address">sanchitsharma217-arch.github.io/Fetc_Website/</div>
-                <span class="live-dot">LIVE</span>
+              <div class="card-spec-grid">
+                <div class="spec-row"><span class="spec-k">ROLE:</span> <span class="spec-v">UI/UX + Full Frontend Engineering</span></div>
+                <div class="spec-row"><span class="spec-k">STACK:</span> <span class="spec-v">HTML5, CSS3 Flex/Grid, ES6+ Vanilla</span></div>
+                <div class="spec-row"><span class="spec-k">FOCUS:</span> <span class="spec-v">Responsive Layout, Sub-1s Load Time, High Conversion</span></div>
               </div>
-              <div class="mini-viewport">
-                <div class="iframe-loader">
-                  <div class="loader-spinner"></div>
-                  <span class="loader-text">Loading Live Preview...</span>
-                </div>
-                <iframe src="https://sanchitsharma217-arch.github.io/Fetc_Website/" title="FETC Live Website" class="mini-live-iframe" loading="lazy"></iframe>
+              <div class="card-actions-row">
+                <a href="https://sanchitsharma217-arch.github.io/Havenix/" target="_blank" rel="noopener" class="card-action-btn live-btn">LIVE SITE ↗</a>
+                <a href="https://github.com/sanchitsharma217-arch/Havenix" target="_blank" rel="noopener" class="card-action-btn cs-btn">GITHUB REPO ↗</a>
               </div>
-            </div>
-            <div class="card-details-bar">
-              <a href="https://sanchitsharma217-arch.github.io/Fetc_Website/" target="_blank" rel="noopener" class="card-title-link">
-                <h3 class="card-title">FETC Web Platform <span class="arrow-icon">↗</span></h3>
-              </a>
-              <p class="card-desc">High-performance responsive tech platform engineered with modular component styling and cross-device optimization.</p>
             </div>
           </article>
 
