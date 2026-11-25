@@ -1749,6 +1749,24 @@ body {
   border-radius: 100px;
 }
 
+.role-badge-link {
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.role-badge-link:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+}
+
 .about-bio {
   font-size: 1.08rem;
   line-height: 1.75;
