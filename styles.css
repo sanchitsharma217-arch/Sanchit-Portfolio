@@ -1080,35 +1080,26 @@ body {
 }
 
 .mini-viewport {
+  display: block;
   flex: 1;
   position: relative;
   overflow: hidden;
-  background: #000000;
+  background: #0a0a0a;
+  text-decoration: none;
   cursor: pointer;
 }
 
-/* Ambient Viewport Poster & Theming */
-.viewport-poster-backdrop {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: top center;
-  filter: brightness(0.92);
-  transform: scale(1);
-  opacity: 1;
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease, transform 0.35s ease;
-  z-index: 1;
-  pointer-events: none;
+.mini-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.mini-viewport.is-activating .viewport-poster-backdrop {
-  filter: brightness(0.65) blur(1.5px);
-  transform: scale(1.04);
-  opacity: 0.85;
-}
-
-.mini-viewport:not(.is-activating):not(.has-loaded)::after {
-  content: 'LIVE PREVIEW ▸';
+.mini-viewport::after {
+  content: 'OPEN LIVE SITE ↗';
   position: absolute;
   right: 0.75rem;
   bottom: 0.75rem;
@@ -1125,95 +1116,9 @@ body {
   transition: background 0.25s ease, color 0.25s ease;
 }
 
-.mini-viewport:not(.is-activating):not(.has-loaded):hover::after {
+.mini-viewport:hover::after {
   background: #ffffff;
   color: #000000;
-}
-
-.mini-live-iframe.is-loaded ~ .viewport-poster-backdrop,
-.mini-viewport.has-loaded .viewport-poster-backdrop {
-  opacity: 0;
-  visibility: hidden;
-}
-
-/* Branded Ambient Themes for Loaders */
-.mini-viewport[data-theme="auravoyage"] .iframe-loader {
-  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.18) 0%, #0d0a04 85%);
-}
-.mini-viewport[data-theme="auravoyage"] .loader-spinner {
-  border-top-color: #d4af37;
-  border-right-color: rgba(212, 175, 55, 0.35);
-}
-.mini-viewport[data-theme="verdora"] .iframe-loader {
-  background: radial-gradient(circle at center, rgba(49, 91, 64, 0.3) 0%, #07100a 85%);
-}
-.mini-viewport[data-theme="verdora"] .loader-spinner {
-  border-top-color: #00ff88;
-  border-right-color: rgba(0, 255, 136, 0.35);
-}
-.mini-viewport[data-theme="havenix"] .iframe-loader {
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.12) 0%, #080808 85%);
-}
-
-.iframe-loader {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at center, #181818 0%, #0a0a0a 100%);
-  gap: 12px;
-  z-index: 2;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
-  pointer-events: none;
-}
-
-.mini-viewport.is-activating .iframe-loader:not(.loaded) {
-  opacity: 1;
-  visibility: visible;
-}
-
-.iframe-loader.loaded {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.loader-spinner {
-  width: 28px;
-  height: 28px;
-  border: 2px solid rgba(255, 255, 255, 0.12);
-  border-top-color: #ffffff;
-  border-radius: 50%;
-  animation: spinnerRotate 0.8s linear infinite;
-}
-
-.loader-text {
-  font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.55);
-  font-family: inherit;
-  letter-spacing: 0.05em;
-}
-
-@keyframes spinnerRotate {
-  to { transform: rotate(360deg); }
-}
-
-.mini-live-iframe {
-  width: 1200px;
-  height: 750px;
-  border: none;
-  transform: scale(0.32);
-  transform-origin: 0 0;
-  pointer-events: auto;
-  opacity: 0;
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.mini-live-iframe.is-loaded {
-  opacity: 1;
 }
 
 /* Card details bar */
@@ -1367,7 +1272,8 @@ body {
   box-shadow: 0 16px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 255, 255, 0.12);
 }
 
-.project-card:hover .card-image-wrapper img {
+.project-card:hover .card-image-wrapper img,
+.project-card:hover .mini-preview-img {
   filter: none;
   transform: scale(1.06);
 }

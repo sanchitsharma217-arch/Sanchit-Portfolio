@@ -1036,36 +1036,6 @@ window.addEventListener('resize', resizeCanvas);
 window.addEventListener('load', updateScrollBounds);
 window.addEventListener('scroll', calculateTargetFrameFromScroll, { passive: true });
 
-// On-Demand Live Iframe Activation (keeps scroll smooth with zero idle iframe load)
-function initIframeLoaders() {
-  document.querySelectorAll('.mini-viewport').forEach(viewport => {
-    const iframe = viewport.querySelector('.mini-live-iframe');
-    const loader = viewport.querySelector('.iframe-loader');
-    if (!iframe) return;
-
-    const handleLoaded = () => {
-      iframe.classList.add('is-loaded');
-      viewport.classList.add('has-loaded');
-      viewport.classList.remove('is-activating');
-      if (loader) loader.classList.add('loaded');
-    };
-
-    iframe.addEventListener('load', handleLoaded);
-
-    const activateIframe = () => {
-      const targetSrc = iframe.getAttribute('data-src');
-      if (!targetSrc || iframe.getAttribute('src')) return;
-      viewport.classList.add('is-activating');
-      iframe.setAttribute('src', targetSrc);
-      iframe.removeAttribute('data-src');
-    };
-
-    viewport.addEventListener('click', activateIframe);
-    viewport.addEventListener('mouseenter', activateIframe, { once: true });
-  });
-}
-initIframeLoaders();
-
 // INTERACTIVE BEFORE & AFTER RETOUCHING SLIDER CONTROLLER
 function initBeforeAfterSlider() {
   const container = document.getElementById('ba-container');
