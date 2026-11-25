@@ -13,7 +13,7 @@ const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
 
 // Canvas & DOM Setup
 const canvas = document.getElementById('animation-canvas');
-const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext('2d', { alpha: false });
 const loaderBar = document.getElementById('loader-bar');
 const exploreBtn = document.getElementById('explore-btn');
 
@@ -111,33 +111,73 @@ let targetFrameIndex = 0;
 let currentFrameIndex = 0;
 let lastRenderedFrame = -1;
 let firstFrameLoaded = false;
+let animLoopRafId = null;
+let cachedMaxScroll = 0;
+let cachedVw = window.innerWidth;
+let cachedVh = window.innerHeight;
 
-// Preload Images
+function updateScrollBounds() {
+  cachedVw = window.innerWidth;
+  cachedVh = window.innerHeight;
+  cachedMaxScroll = Math.max(
+    0,
+    Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) - cachedVh
+  );
+}
+
+function loadFrame(i) {
+  const img = new Image();
+  const frameIndex = i - 1;
+  img.decoding = 'async';
+  img.src = FRAME_PATH(i);
+
+  img.onload = () => {
+    images[frameIndex] = img;
+    loadedCount++;
+    updateLoaderProgress();
+    updatePreloaderProgress();
+
+    // Render 1st frame instantly
+    if (!firstFrameLoaded && frameIndex === 0) {
+      firstFrameLoaded = true;
+      resizeCanvas();
+      renderFrame(0);
+    }
+  };
+
+  img.onerror = () => {
+    loadedCount++;
+    updateLoaderProgress();
+    updatePreloaderProgress();
+  };
+}
+
+// Preload initial buffer immediately, then stream remaining frames in gentle batches
 function preloadImages() {
-  for (let i = 1; i <= TOTAL_FRAMES; i++) {
-    const img = new Image();
-    const frameIndex = i - 1;
-    img.src = FRAME_PATH(i);
+  const initialBurst = Math.min(45, TOTAL_FRAMES);
+  for (let i = 1; i <= initialBurst; i++) {
+    loadFrame(i);
+  }
 
-    img.onload = () => {
-      images[frameIndex] = img;
-      loadedCount++;
-      updateLoaderProgress();
-      updatePreloaderProgress();
-
-      // Render 1st frame instantly
-      if (!firstFrameLoaded && frameIndex === 0) {
-        firstFrameLoaded = true;
-        resizeCanvas();
-        renderFrame(0);
+  let nextFrame = initialBurst + 1;
+  function loadNextBatch() {
+    if (nextFrame > TOTAL_FRAMES) return;
+    const batchEnd = Math.min(TOTAL_FRAMES, nextFrame + 9);
+    for (let i = nextFrame; i <= batchEnd; i++) {
+      loadFrame(i);
+    }
+    nextFrame = batchEnd + 1;
+    if (nextFrame <= TOTAL_FRAMES) {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadNextBatch, { timeout: 250 });
+      } else {
+        setTimeout(loadNextBatch, 60);
       }
-    };
+    }
+  }
 
-    img.onerror = () => {
-      loadedCount++;
-      updateLoaderProgress();
-      updatePreloaderProgress();
-    };
+  if (nextFrame <= TOTAL_FRAMES) {
+    setTimeout(loadNextBatch, 180);
   }
 }
 
@@ -154,12 +194,14 @@ function updateLoaderProgress() {
   }
 }
 
-// Canvas Sizing with Retina DPR Support
+// Canvas Sizing with Capped DPR for Smooth 60 FPS Mobile & Desktop Rendering
 function resizeCanvas() {
-  const dpr = window.devicePixelRatio || 1;
-  canvas.width = window.innerWidth * dpr;
-  canvas.height = window.innerHeight * dpr;
-  ctx.scale(dpr, dpr);
+  updateScrollBounds();
+  const rawDpr = window.devicePixelRatio || 1;
+  const dpr = Math.min(rawDpr, cachedVw <= 768 ? 1.25 : 1.5);
+  canvas.width = Math.round(cachedVw * dpr);
+  canvas.height = Math.round(cachedVh * dpr);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
   renderFrame(Math.round(currentFrameIndex));
 }
@@ -181,8 +223,8 @@ function renderFrame(index) {
 
   if (!img || !img.complete || img.naturalWidth === 0) return;
 
-  const vw = window.innerWidth;
-  const vh = window.innerHeight;
+  const vw = cachedVw;
+  const vh = cachedVh;
   const imgW = img.naturalWidth || 1280;
   const imgH = img.naturalHeight || 720;
 
@@ -202,24 +244,22 @@ function renderFrame(index) {
   const offsetX = (vw - drawW) / 2;
   const offsetY = (vh - drawH) / 2;
 
-  ctx.clearRect(0, 0, vw, vh);
   ctx.drawImage(img, offsetX, offsetY, drawW, drawH);
 
   lastRenderedFrame = frameIndex;
 }
 
-// Calculate Target Frame from Window Scroll Position
+// Calculate Target Frame from Cached Scroll Bounds
 function calculateTargetFrameFromScroll() {
-  const maxScroll = Math.max(
-    document.body.scrollHeight,
-    document.documentElement.scrollHeight
-  ) - window.innerHeight;
+  if (cachedMaxScroll <= 0) {
+    updateScrollBounds();
+    if (cachedMaxScroll <= 0) return;
+  }
 
-  if (maxScroll <= 0) return;
-
-  const scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-  const progress = Math.max(0, Math.min(1, scrollTop / maxScroll));
+  const scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+  const progress = Math.max(0, Math.min(1, scrollTop / cachedMaxScroll));
   targetFrameIndex = progress * (TOTAL_FRAMES - 1);
+  scheduleAnimLoop();
 }
 
 // Custom Cinematic Smooth Travel Easing Engine
@@ -242,7 +282,7 @@ function smoothTravelTo(targetY, duration = 1800) {
     const easedProgress = easeInOutCubic(progress);
     const nextY = startY + distance * easedProgress;
 
-    window.scrollTo(0, nextY);
+    window.scrollTo({ top: nextY, behavior: 'instant' });
 
     if (progress < 1) {
       requestAnimationFrame(travelStep);
@@ -317,6 +357,9 @@ filterBtns.forEach(btn => {
         }
       }
     });
+
+    updateScrollBounds();
+    calculateTargetFrameFromScroll();
   });
 });
 
@@ -962,14 +1005,20 @@ window.addEventListener('keydown', (e) => {
   spiderLoop();
 })();
 
-// Lerp Animation Loop
+// Demand-Driven Lerp Animation Loop (sleeps when idle)
+function scheduleAnimLoop() {
+  if (animLoopRafId !== null) return;
+  animLoopRafId = requestAnimationFrame(animLoop);
+}
+
 function animLoop() {
-  calculateTargetFrameFromScroll();
+  animLoopRafId = null;
 
-  currentFrameIndex += (targetFrameIndex - currentFrameIndex) * 0.15;
-
-  if (Math.abs(targetFrameIndex - currentFrameIndex) < 0.001) {
+  const diff = targetFrameIndex - currentFrameIndex;
+  if (Math.abs(diff) < 0.01) {
     currentFrameIndex = targetFrameIndex;
+  } else {
+    currentFrameIndex += diff * 0.18;
   }
 
   const frameToRender = Math.round(currentFrameIndex);
@@ -977,14 +1026,17 @@ function animLoop() {
     renderFrame(frameToRender);
   }
 
-  requestAnimationFrame(animLoop);
+  if (Math.abs(targetFrameIndex - currentFrameIndex) >= 0.01) {
+    scheduleAnimLoop();
+  }
 }
 
 // Window Event Listeners
 window.addEventListener('resize', resizeCanvas);
+window.addEventListener('load', updateScrollBounds);
 window.addEventListener('scroll', calculateTargetFrameFromScroll, { passive: true });
 
-// Smooth iframe lazy loading and fade-in
+// On-Demand Live Iframe Activation (keeps scroll smooth with zero idle iframe load)
 function initIframeLoaders() {
   document.querySelectorAll('.mini-viewport').forEach(viewport => {
     const iframe = viewport.querySelector('.mini-live-iframe');
@@ -994,10 +1046,22 @@ function initIframeLoaders() {
     const handleLoaded = () => {
       iframe.classList.add('is-loaded');
       viewport.classList.add('has-loaded');
+      viewport.classList.remove('is-activating');
       if (loader) loader.classList.add('loaded');
     };
 
     iframe.addEventListener('load', handleLoaded);
+
+    const activateIframe = () => {
+      const targetSrc = iframe.getAttribute('data-src');
+      if (!targetSrc || iframe.getAttribute('src')) return;
+      viewport.classList.add('is-activating');
+      iframe.setAttribute('src', targetSrc);
+      iframe.removeAttribute('data-src');
+    };
+
+    viewport.addEventListener('click', activateIframe);
+    viewport.addEventListener('mouseenter', activateIframe, { once: true });
   });
 }
 initIframeLoaders();
@@ -1110,29 +1174,24 @@ function initHeaderNavigation() {
     });
   }
 
-  // Scrollspy to highlight active section
+  // Scrollspy using IntersectionObserver (avoids layout reads on scroll)
   const sections = document.querySelectorAll('section[id]');
-  function updateScrollspy() {
-    const scrollPos = window.scrollY + 200;
-
-    sections.forEach(section => {
-      const top = section.offsetTop;
-      const height = section.offsetHeight;
-      const id = section.getAttribute('id');
-
-      if (scrollPos >= top && scrollPos < top + height) {
+  if ('IntersectionObserver' in window && sections.length > 0) {
+    const spyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.getAttribute('id');
         navLinks.forEach(link => {
-          if (link.getAttribute('data-section') === id) {
-            link.classList.add('active');
-          } else {
-            link.classList.remove('active');
-          }
+          link.classList.toggle('active', link.getAttribute('data-section') === id);
         });
-      }
+      });
+    }, {
+      rootMargin: '-35% 0px -55% 0px',
+      threshold: 0
     });
-  }
 
-  window.addEventListener('scroll', updateScrollspy, { passive: true });
+    sections.forEach(section => spyObserver.observe(section));
+  }
 }
 
 // DIRECTION-AWARE SPOTLIGHT BUTTON CONTROLLER
@@ -1229,7 +1288,6 @@ function initDirectionalSpotlightButtons() {
 // Start Application
 preloadImages();
 resizeCanvas();
-requestAnimationFrame(animLoop);
 initBeforeAfterSlider();
 initHeaderNavigation();
 initDirectionalSpotlightButtons();
