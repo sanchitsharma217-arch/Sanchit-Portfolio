@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[3D TEST] SANCHIT SHARMA — Creative Frontend Developer & Visual Art Director</title>
+  
+  <!-- SEO & Social Meta Tags -->
+  <meta name="description" content="Portfolio of Sanchit Sharma — Creative Frontend Developer & Visual Art Director crafting bespoke, high-performance web experiences, 3D interactive canvases, and cutting-edge visual systems.">
+  <meta name="author" content="Sanchit Sharma">
+  
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SANCHIT SHARMA — Creative Frontend Developer & Visual Art Director">
+  <meta property="og:description" content="Crafting bespoke, high-performance web experiences, interactive user interfaces, and cutting-edge visual systems.">
+  <meta property="og:image" content="work/ui-ux/work-uiux-aurora-drive.jpg">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SANCHIT SHARMA — Creative Frontend Developer & Visual Art Director">
+  <meta name="twitter:description" content="Crafting bespoke, high-performance web experiences, interactive user interfaces, and cutting-edge visual systems.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <!-- 3D TEST: Three.js background -->
+  <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js" } }</script>
+  <style>
+    #animation-canvas { display: none !important; }
+    #bg3d { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; display: block; background: #000000; }
+    .bg3d-vignette { position: fixed; inset: 0; z-index: 1; pointer-events: none;
+      background: radial-gradient(ellipse at 50% 45%, transparent 35%, rgba(0,0,0,0.75) 100%); }
+  </style>
+</head>
+<body>
+
+  <!-- Cinematic Agency Preloader Screen -->
+  <aside id="site-preloader" class="site-preloader" aria-label="Loading Portfolio">
+    <div class="preloader-backdrop"></div>
+    <div class="preloader-content">
+      <div class="preloader-brand">
+        <span class="preloader-tagline">PORTFOLIO // 2026</span>
+        <h1 class="preloader-name">SANCHIT SHARMA</h1>
+        <p class="preloader-role">AI GRAPHIC DESIGNER &times; FRONTEND ARCHITECT</p>
+      </div>
+
+      <div class="preloader-progress-wrap">
+        <div class="preloader-counter" id="preloader-counter">00%</div>
+        <div class="preloader-track">
+          <div class="preloader-fill" id="preloader-fill"></div>
+        </div>
+      </div>
+
+      <div class="preloader-status" id="preloader-status">INITIALIZING VISUAL ASSETS...</div>
+    </div>
+  </aside>
+
+  <!-- Top Loader Progress Line -->
+  <div id="loader-bar" class="loader-bar"></div>
+
+  <!-- Floating Frosted Glass Header Navigation Bar -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="#hero" class="nav-brand">
+        <div class="brand-avatar">
+          <img src="images/about-portrait.jpg" alt="Sanchit Sharma" class="brand-avatar-img">
+        </div>
+        <div class="brand-info">
+          <span class="brand-title">SANCHIT SHARMA</span>
+          <span class="brand-status"><span class="status-dot"></span> AVAILABLE</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="#work" class="nav-link" data-section="work"><span class="link-num">01</span> WORK</a>
+        <a href="#about" class="nav-link" data-section="about"><span class="link-num">02</span> ABOUT</a>
+        <a href="#services" class="nav-link" data-section="services"><span class="link-num">03</span> SERVICES</a>
+        <a href="#contact" class="nav-link" data-section="contact"><span class="link-num">04</span> CONTACT</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-cta-btn spotlight-btn" id="nav-talk-btn">
+          <span class="btn-text">LET'S TALK ↗</span>
+          <span class="spotlight-layer"></span>
+          <span class="spotlight-border"></span>
+        </button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Fullscreen Canvas Animation Background -->
+  <canvas id="animation-canvas"></canvas>
+  <canvas id="bg3d"></canvas>
+  <div class="bg3d-vignette"></div>
+
+  <!-- Main Scrollable Content Container -->
+  <div class="scroll-container" id="scroll-container">
+    
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="hero-content">
+        <div class="hero-badge reveal-item">
+          <span class="badge-pulse"></span>
+          <span class="badge-text">AVAILABLE FOR SELECT CLIENT PROJECTS &amp; CONTRACTS</span>
+        </div>
+
+        <h1 class="hero-title">SANCHIT SHARMA</h1>
+
+        <div class="hero-subtitle">
+          <span class="role-tag">CREATIVE FRONTEND DEVELOPER</span>
+          <span class="multiply-symbol">×</span>
+          <span class="role-tag">VISUAL &amp; AI ART DIRECTOR</span>
+        </div>
+        
+        <p class="hero-tagline">
+          I build high-impact digital experiences combining pure frontend engineering, bespoke UI/UX design systems, and next-gen AI visual direction.
+        </p>
+
+        <!-- Quick Deliverables Value Strip -->
+        <div class="hero-skills-strip reveal-item">
+          <span class="h-skill-tag">Web Platforms</span>
+          <span class="h-skill-sep">•</span>
+          <span class="h-skill-tag">UI/UX Design Systems</span>
+          <span class="h-skill-sep">•</span>
+          <span class="h-skill-tag">Brand Art Direction</span>
+          <span class="h-skill-sep">•</span>
+          <span class="h-skill-tag">AI Visual Workflows</span>
+        </div>
+
+        <div class="hero-cta-group">
+          <button class="hero-talk-btn spotlight-btn" id="hero-talk-btn">
+            <span class="btn-text">START A PROJECT ↗</span>
+            <span class="spotlight-layer"></span>
+            <span class="spotlight-border"></span>
+          </button>
+          <a href="#work" class="explore-btn spotlight-btn" id="explore-btn">
+            <span class="btn-text">EXPLORE WORK ↓</span>
+            <span class="spotlight-layer"></span>
+            <span class="spotlight-border"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Section -->
+    <section class="work-section" id="work">
+      <div class="work-container">
+        
+        <!-- Section Header -->
+        <div class="section-header reveal-item">
+          <span class="section-kicker">CURATED PORTFOLIO</span>
+          <h2 class="section-title">FEATURED WORK</h2>
+          <p class="section-subtitle">Real-world web platforms, component design systems, and visual art engineered for measurable business impact.</p>
+        </div>
+
+        <!-- High-Impact Proof Strip -->
+        <div class="stats-strip reveal-item">
+          <div class="stat-card">
+            <div class="stat-icon-tag">100/100</div>
+            <div class="stat-info">
+              <h4 class="stat-val">Lighthouse Speed</h4>
+              <p class="stat-sub">Sub-second First Contentful Paint &amp; zero-bloat code</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon-tag">60 FPS</div>
+            <div class="stat-info">
+              <h4 class="stat-val">Kinetic Canvas</h4>
+              <p class="stat-sub">Hardware-accelerated HTML5 Canvas 2D &amp; IK physics</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon-tag">0 DEPS</div>
+            <div class="stat-info">
+              <h4 class="stat-val">Vanilla Architecture</h4>
+              <p class="stat-sub">Handcrafted ES6+ &amp; modern modular CSS3 systems</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon-tag">100%</div>
+            <div class="stat-info">
+              <h4 class="stat-val">Responsive Systems</h4>
+              <p class="stat-sub">Fluid viewport scaling across desktop, tablet &amp; mobile</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Tabs -->
+        <nav class="filter-tabs">
+          <button class="filter-btn active reveal-item" data-filter="all">ALL</button>
+          <button class="filter-btn reveal-item" data-filter="frontend">FRONTEND</button>
+          <button class="filter-btn reveal-item" data-filter="ui-ux">UI/UX DESIGN</button>
+          <button class="filter-btn reveal-item" data-filter="photoshop">PHOTOSHOP</button>
+          <button class="filter-btn reveal-item" data-filter="ai-assets">AI ASSETS</button>
+          <button class="filter-btn reveal-item" data-filter="thumbnails">THUMBNAILS</button>
+        </nav>
+
+        <!-- Clean Categorized Showcase Grid -->
+        <div class="projects-grid" id="projects-grid">
+          
+          <!-- ================= 🌟 "ALL" OVERVIEW SUMMARY CARDS (1 FROM EACH SECTION) ================= -->
+          
+          <!-- 1. ALL: FRONTEND SHOWCASE (FLAGSHIP 01 - AURAVOYAGE) -->
+          <article class="project-card reveal-item" data-all-summary="true" data-category="frontend">
+            <div class="mini-browser-shell">
+              <div class="browser-header-bar">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-address">sanchitsharma217-arch.github.io/AuraVoyage/</div>
+                <span class="live-dot">LIVE PRODUCTION</span>
+              </div>
+              <a href="https://sanchitsharma217-arch.github.io/AuraVoyage/" target="_blank" rel="noopener" class="mini-viewport" aria-label="Open AuraVoyage Live Site">
+                <img src="work/frontend/auravoyage-preview.png" alt="AuraVoyage Website Preview" class="mini-preview-img" loading="lazy" decoding="async">
+              </a>
+            </div>
+            <div class="card-details-bar">
+              <div class="card-tags-row">
+                <span class="card-tech-tag">React 19</span>
+                <span class="card-tech-tag">TypeScript</span>
+                <span class="card-tech-tag">Tailwind v4</span>
+                <span class="card-tech-tag">Vite</span>
+              </div>
+              <a href="https://sanchitsharma217-arch.github.io/AuraVoyage/" target="_blank" rel="noopener" class="card-title-link">
+                <h3 class="card-title">AURAVOYAGE — Ultra-Luxury Travel Concierge <span class="arrow-icon">↗</span></h3>
+              </a>
+              <p class="card-desc">Bespoke high-luxury travel concierge and reservation engine featuring live destination telemetry, interactive 5-step trip configurator, and printable VIP boarding passes.</p>
+              
+              <!-- Concrete Mini Case-Study Specs -->
+              <div class="card-spec-grid">
+                <div class="spec-row"><span class="spec-k">ROLE:</span> <span class="spec-v">UI/UX Architect &amp; Frontend Engineering</span></div>
+                <div class="spec-row"><span class="spec-k">STACK:</span> <span class="spec-v">React 19, TypeScript 5, Tailwind CSS v4, Vite</span></div>
+                <div class="spec-row"><span class="spec-k">FEATURES:</span> <span class="spec-v">Live Weather Engine, Custom Trip Studio, VIP Boarding Pass</span></div>
+              </div>
+
+              <div class="card-actions-row">
+                <a href="https://sanchitsharma217-arch.github.io/AuraVoyage/" target="_blank" rel="noopener" class="card-action-btn live-btn">LIVE SITE ↗</a>
+                <a href="https://github.com/sanchitsharma217-arch/AuraVoyage" target="_blank" rel="noopener" class="card-action-btn cs-btn">GITHUB REPO ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. ALL: FRONTEND SHOWCASE (FLAGSHIP 02 - VERDORA) -->
+          <article class="project-card reveal-item" data-all-summary="true" data-category="frontend">
+            <div class="mini-browser-shell">
+              <div class="browser-header-bar">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-address">sanchitsharma217-arch.github.io/verdora/</div>
+                <span class="live-dot">LIVE STOREFRONT</span>
+              </div>
+              <a href="https://sanchitsharma217-arch.github.io/verdora/" target="_blank" rel="noopener" class="mini-viewport" aria-label="Open Verdora Live Storefront">
+                <img src="work/frontend/verdora-preview.png" alt="Verdora Website Preview" class="mini-preview-img" loading="lazy" decoding="async">
+              </a>
+            </div>
+            <div class="card-details-bar">
+              <div class="card-tags-row">
+                <span class="card-tech-tag">React 19</span>
+                <span class="card-tech-tag">Framer Motion</span>
+                <span class="card-tech-tag">Tailwind CSS</span>
+                <span class="card-tech-tag">Editorial Grid</span>
+              </div>
+              <a href="https://sanchitsharma217-arch.github.io/verdora/" target="_blank" rel="noopener" class="card-title-link">
+                <h3 class="card-title">VERDORA — Luxury Botanical Maison <span class="arrow-icon">↗</span></h3>
+              </a>
+              <p class="card-desc">Fictional luxury botanical e-commerce maison and living flora showcase with fluid cart physics, interactive botanical vitality indices, and an automated plant doctor clinic.</p>
+              
+              <!-- Concrete Mini Case-Study Specs -->
+              <div class="card-spec-grid">
+                <div class="spec-row"><span class="spec-k">ROLE:</span> <span class="spec-v">Frontend Architect &amp; Interaction Designer</span></div>
+                <div class="spec-row"><span class="spec-k">STACK:</span> <span class="spec-v">React 19, Framer Motion, Tailwind CSS, Vite</span></div>
+                <div class="spec-row"><span class="spec-k">EXPERIENCE:</span> <span class="spec-v">18 Routes, Diagnostic Plant Doctor, Fluid Cart Drawer</span></div>
+              </div>
+
+              <div class="card-actions-row">
+                <a href="https://sanchitsharma217-arch.github.io/verdora/" target="_blank" rel="noopener" class="card-action-btn live-btn">LIVE STORE ↗</a>
+                <a href="https://github.com/sanchitsharma217-arch/verdora" target="_blank" rel="noopener" class="card-action-btn cs-btn">GITHUB REPO ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. ALL: UI/UX DESIGN SHOWCASE (FLAGSHIP 02) -->
+          <article class="project-card gallery-trigger-card reveal-item" data-all-summary="true" data-category="ui-ux" data-gallery="ui-ux" data-index="0">
+            <div class="card-image-wrapper">
+              <img src="work/ui-ux/work-uiux-aurora-drive.jpg" alt="UI/UX Design Case Studies" decoding="async">
+              <span class="collection-badge">03 CASE STUDIES</span>
+            </div>
+            <div class="card-details-bar">
+              <div class="card-tags-row">
+                <span class="card-tech-tag">Figma</span>
+                <span class="card-tech-tag">Design Systems</span>
+                <span class="card-tech-tag">Interactive Prototypes</span>
+              </div>
+              <h3 class="card-title">UI/UX Design Systems <span class="arrow-icon">↗</span></h3>
+              <p class="card-desc">Complete user flow architectures, component design systems, and high-fidelity interactive prototypes for luxury consumer brands.</p>
+              
+              <div class="card-spec-grid">
+                <div class="spec-row"><span class="spec-k">ROLE:</span> <span class="spec-v">Product Interface Architect &amp; UI/UX Lead</span></div>
+                <div class="spec-row"><span class="spec-k">DELIVERABLE:</span> <span class="spec-v">Figma Tokens, 3-Step Booking Flow, Auto-Layout Systems</span></div>
+                <div class="spec-row"><span class="spec-k">IMPACT:</span> <span class="spec-v">Reduced Reservation Friction &amp; Elevated Brand Authority</span></div>
+              </div>
+
+              <div class="card-actions-row">
+                <button class="card-action-btn cs-btn">VIEW CASE STUDY BREAKDOWN ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. ALL: PHOTOSHOP SHOWCASE -->
+          <article class="project-card gallery-trigger-card reveal-item" data-all-summary="true" data-category="photoshop" data-gallery="photoshop" data-index="0">
+            <div class="card-image-wrapper">
+              <img src="work/photoshop/work-photoshop-2.png" alt="Photoshop Artworks Collection" decoding="async">
+              <span class="collection-badge">02 ARTWORKS</span>
+            </div>
+            <div class="card-details-bar">
+              <div class="card-tags-row">
+                <span class="card-tech-tag">Photoshop CC</span>
+                <span class="card-tech-tag">Digital Compositing</span>
+                <span class="card-tech-tag">Camera Raw</span>
+              </div>
+              <h3 class="card-title">Photoshop Artworks <span class="arrow-icon">↗</span></h3>
+              <p class="card-desc">High-end commercial photo compositing, advanced texture blending, and cinematic lighting manipulation for digital marketing.</p>
+              
+              <div class="card-spec-grid">
+                <div class="spec-row"><span class="spec-k">ROLE:</span> <span class="spec-v">Visual Art Director &amp; Retoucher</span></div>
+                <div class="spec-row"><span class="spec-k">TECHNIQUE:</span> <span class="spec-v">Non-Destructive Masking, Particle Splashes, Rim Light FX</span></div>
+              </div>
+
+              <div class="card-actions-row">
+                <button class="card-action-btn cs-btn">VIEW ART GALLERY ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. ALL: AI ASSETS SHOWCASE -->
+          <article class="project-card gallery-trigger-card reveal-item" data-all-summary="true" data-category="ai-assets" data-gallery="ai-assets" data-index="0">
+            <div class="card-image-wrapper">
+              <img src="work/ai-assets/fetc-ai-asset-1.jpg" alt="AI Assets Collection" decoding="async">
+              <span class="collection-badge">05 ASSETS</span>
+            </div>
+            <div class="card-details-bar">
+              <div class="card-tags-row">
+                <span class="card-tech-tag">Generative AI</span>
+                <span class="card-tech-tag">3D Sci-Fi Concepts</span>
+                <span class="card-tech-tag">Prompt Engineering</span>
+              </div>
+              <h3 class="card-title">AI Asset Collection <span class="arrow-icon">↗</span></h3>
+              <p class="card-desc">Synthesizing futuristic 3D conceptual assets, character renders, and sci-fi environments tailored for modern brand narratives.</p>
+              
+              <div class="card-spec-grid">
+                <div class="spec-row"><span class="spec-k">ROLE:</span> <span class="spec-v">AI Prompt Specialist &amp; Post-Production Artist</span></div>
+                <div class="spec-row"><span class="spec-k">FOCUS:</span> <span class="spec-v">80% Faster Asset Turnaround • 4K Display Resolution</span></div>
+              </div>
+
+              <div class="card-actions-row">
+                <button class="card-action-btn cs-btn">EXPLORE 5 ASSETS ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. ALL: THUMBNAILS SHOWCASE -->
+          <article class="project-card gallery-trigger-card reveal-item" data-all-summary="true" data-category="thumbnails" data-gallery="thumbnails" data-index="0">
+            <div class="card-image-wrapper">
+              <img src="work/thumbnails/business-thumb-3.jpg" alt="YouTube Thumbnails Collection" decoding="async">
+              <span class="collection-badge">05 THUMBNAILS</span>
+            </div>
+            <div class="card-details-bar">
+              <div class="card-tags-row">
+                <span class="card-tech-tag">High CTR</span>
+                <span class="card-tech-tag">YouTube Branding</span>
+                <span class="card-tech-tag">Visual Hooks</span>
+              </div>
+              <h3 class="card-title">High-CTR Thumbnails <span class="arrow-icon">↗</span></h3>
+              <p class="card-desc">High-impact YouTube covers and stream branding engineered with contrast-heavy visual hooks for maximum audience retention.</p>
+              
+              <div class="card-spec-grid">
+                <div class="spec-row"><span class="spec-k">ROLE:</span> <span class="spec-v">YouTube Visual Strategist &amp; Designer</span></div>
+                <div class="spec-row"><span class="spec-k">METRIC:</span> <span class="spec-v">Engineered for 8.5%+ Click-Through Rates in Browse Feeds</span></div>
+              </div>
+
+              <div class="card-actions-row">
+                <button class="card-action-btn cs-btn">VIEW THUMBNAIL SUITE ↗</button>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- ================= 📂 DETAILED CATEGORY ITEMS (EXPANDED ON TAB CLICK) ================= -->
+
+          <!-- FRONTEND DETAILED ITEMS -->
+          <!-- 1. AURAVOYAGE -->
+          <article class="project-card reveal-item hidden" data-category-item="true" data-category="frontend">
+            <div class="mini-browser-shell">
+              <div class="browser-header-bar">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-address">sanchitsharma217-arch.github.io/AuraVoyage/</div>
+                <span class="live-dot">LIVE PRODUCTION</span>
+              </div>
+              <a href="https://sanchitsharma217-arch.github.io/AuraVoyage/" target="_blank" rel="noopener" class="mini-viewport" aria-label="Open AuraVoyage Live Site">
+                <img src="work/frontend/auravoyage-preview.png" alt="AuraVoyage Website Preview" class="mini-preview-img" loading="lazy" decoding="async">
+              </a>
+            </div>
+            <div class="card-details-bar">
+              <div class="card-tags-row">
+                <span class="card-tech-tag">React 19</span>
+                <span class="card-tech-tag">TypeScript</span>
+                <span class="card-tech-tag">Tailwind v4</span>
+                <span class="card-tech-tag">Vite</span>
+              </div>
+              <a href="https://sanchitsharma217-arch.github.io/AuraVoyage/" target="_blank" rel="noopener" class="card-title-link">
+                <h3 class="card-title">AURAVOYAGE — Ultra-Luxury Travel Concierge <span class="arrow-icon">↗</span></h3>
+              </a>
+              <p class="card-desc">Bespoke high-luxury travel concierge and reservation engine featuring live destination telemetry, interactive 5-step trip configurator, and printable VIP boarding passes.</p>
+              <div class="card-spec-grid">
+                <div class="spec-row"><span class="spec-k">ROLE:</span> <span class="spec-v">UI/UX Architect &amp; Frontend Engineering</span></div>
+                <div class="spec-row"><span class="spec-k">STACK:</span> <span class="spec-v">React 19, TypeScript 5, Tailwind CSS v4, Vite</span></div>
+                <div class="spec-row"><span class="spec-k">FEATURES:</span> <span class="spec-v">Live Weather Engine, Custom Trip Studio, VIP Boarding Pass</span></div>
+              </div>
+              <div class="card-actions-row">
+                <a href="https://sanchitsharma217-arch.github.io/AuraVoyage/" target="_blank" rel="noopener" class="card-action-btn live-btn">LIVE SITE ↗</a>
+                <a href="https://github.com/sanchitsharma217-arch/AuraVoyage" target="_blank" rel="noopener" class="card-action-btn cs-btn">GITHUB REPO ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. VERDORA -->
+          <article class="project-card reveal-item hidden" data-category-item="true" data-category="frontend">
+            <div class="mini-browser-shell">
+              <div class="browser-header-bar">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-address">sanchitsharma217-arch.github.io/verdora/</div>
+                <span class="live-dot">LIVE STOREFRONT</span>
+              </div>
+              <a href="https://sanchitsharma217-arch.github.io/verdora/" target="_blank" rel="noopener" class="mini-viewport" aria-label="Open Verdora Live Storefront">
+                <img src="work/frontend/verdora-preview.png" alt="Verdora Website Preview" class="mini-preview-img" loading="lazy" decoding="async">
+              </a>
+            </div>
+            <div class="card-details-bar">
+              <div class="card-tags-row">
+                <span class="card-tech-tag">React 19</span>
+                <span class="card-tech-tag">Framer Motion</span>
+                <span class="card-tech-tag">Tailwind CSS</span>
+                <span class="card-tech-tag">Editorial Grid</span>
+              </div>
+              <a href="https://sanchitsharma217-arch.github.io/verdora/" target="_blank" rel="noopener" class="card-title-link">
+                <h3 class="card-title">VERDORA — Luxury Botanical Maison <span class="arrow-icon">↗</span></h3>
+              </a>
+              <p class="card-desc">Fictional luxury botanical e-commerce maison and living flora showcase with fluid cart physics, interactive botanical vitality indices, and an automated plant doctor clinic.</p>
+              <div class="card-spec-grid">
+                <div class="spec-row"><span class="spec-k">ROLE:</span> <span class="spec-v">Frontend Architect &amp; Interaction Designer</span></div>
+                <div class="spec-row"><span class="spec-k">STACK:</span> <span class="spec-v">React 19, Framer Motion, Tailwind CSS, Vite</span></div>
+                <div class="spec-row"><span class="spec-k">EXPERIENCE:</span> <span class="spec-v">18 Routes, Diagnostic Plant Doctor, Fluid Cart Drawer</span></div>
+              </div>
+              <div class="card-actions-row">
+                <a href="https://sanchitsharma217-arch.github.io/verdora/" target="_blank" rel="noopener" class="card-action-btn live-btn">LIVE STORE ↗</a>
+                <a href="https://github.com/sanchitsharma217-arch/verdora" target="_blank" rel="noopener" class="card-action-btn cs-btn">GITHUB REPO ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. HAVENIX -->
+          <article class="project-card reveal-item hidden" data-category-item="true" data-category="frontend">
+            <div class="mini-browser-shell">
+              <div class="browser-header-bar">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-address">sanchitsharma217-arch.github.io/Havenix/</div>
+                <span class="live-dot">LIVE PRODUCTION</span>
+              </div>
+              <a href="https://sanchitsharma217-arch.github.io/Havenix/" target="_blank" rel="noopener" class="mini-viewport" aria-label="Open Havenix Live Site">
+                <img src="work/frontend/havenix.png" alt="Havenix Architecture Studio Website Preview" class="mini-preview-img" loading="lazy" decoding="async">
+              </a>
+            </div>
+            <div class="card-details-bar">
+              <div class="card-tags-row">
+                <span class="card-tech-tag">HTML5 / CSS3</span>
+                <span class="card-tech-tag">Vanilla JS</span>
+                <span class="card-tech-tag">Live Architecture Site</span>
+              </div>
+              <a href="https://sanchitsharma217-arch.github.io/Havenix/" target="_blank" rel="noopener" class="card-title-link">
+                <h3 class="card-title">HAVENIX Architecture Studio <span class="arrow-icon">↗</span></h3>
+              </a>
+              <p class="card-desc">Bespoke architecture studio web experience featuring custom visual direction, interactive motion, and a conversion-focused layout.</p>
+              <div class="card-spec-grid">
+                <div class="spec-row"><span class="spec-k">ROLE:</span> <span class="spec-v">UI/UX + Full Frontend Engineering</span></div>
+                <div class="spec-row"><span class="spec-k">STACK:</span> <span class="spec-v">HTML5, CSS3 Flex/Grid, ES6+ Vanilla</span></div>
+                <div class="spec-row"><span class="spec-k">FOCUS:</span> <span class="spec-v">Responsive Layout, Sub-1s Load Time, High Conversion</span></div>
+              </div>
+              <div class="card-actions-row">
+                <a href="https://sanchitsharma217-arch.github.io/Havenix/" target="_blank" rel="noopener" class="card-action-btn live-btn">LIVE SITE ↗</a>
+                <a href="https://github.com/sanchitsharma217-arch/Havenix" target="_blank" rel="noopener" class="card-action-btn cs-btn">GITHUB REPO ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- UI/UX DESIGN DETAILED ITEMS -->
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="ui-ux" data-gallery="ui-ux" data-index="0">
+            <div class="card-image-wrapper">
+              <img src="work/ui-ux/work-uiux-aurora-drive.jpg" alt="Aurora Drive Luxury Car Rental UI/UX Board" decoding="async">
+              <span class="collection-badge">CASE STUDY // 01</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Aurora Drive — Luxury Car Rental <span class="arrow-icon">↗</span></h3>
+              <p class="card-desc">Exotic luxury car rental booking platform &amp; comprehensive Figma component design system.</p>
+            </div>
+          </article>
+
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="ui-ux" data-gallery="ui-ux" data-index="1">
+            <div class="card-image-wrapper">
+              <img src="work/ui-ux/work-uiux-trekbest.jpg" alt="Trekbest Travel & Tours UI/UX Board" decoding="async">
+              <span class="collection-badge">CASE STUDY // 02</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Trekbest — Travel & Tours Platform <span class="arrow-icon">↗</span></h3>
+              <p class="card-desc">Global tour discovery &amp; adventure travel booking interface designed for intuitive mobile exploration.</p>
+            </div>
+          </article>
+
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="ui-ux" data-gallery="ui-ux" data-index="2">
+            <div class="card-image-wrapper">
+              <img src="work/ui-ux/work-uiux-luxora.jpg" alt="Luxora Fine Jewelry UI/UX Board" decoding="async">
+              <span class="collection-badge">CASE STUDY // 03</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Luxora — Luxury Fine Jewelry <span class="arrow-icon">↗</span></h3>
+              <p class="card-desc">High-end bespoke jewelry e-commerce experience emphasizing craftsmanship and refined typography.</p>
+            </div>
+          </article>
+
+          <!-- PHOTOSHOP DETAILED ITEMS -->
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="photoshop" data-gallery="photoshop" data-index="0">
+            <div class="card-image-wrapper">
+              <img src="work/photoshop/work-photoshop-2.png" alt="Sneaker Commercial Artwork" decoding="async">
+              <span class="collection-badge">PHOTOSHOP // 01</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Sneaker Commercial Artwork <span class="arrow-icon">↗</span></h3>
+              <p class="card-desc">Dynamic commercial photo manipulation, edge illumination, and particle splash compositing.</p>
+            </div>
+          </article>
+
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="photoshop" data-gallery="photoshop" data-index="1">
+            <div class="card-image-wrapper">
+              <img src="work/photoshop/work-photoshop-1.png" alt="Photoshop Art Composition" decoding="async">
+              <span class="collection-badge">PHOTOSHOP // 02</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Photoshop Art Composition <span class="arrow-icon">↗</span></h3>
+              <p class="card-desc">Surrealist conceptual key visual created with advanced multi-layer blending and cinematic lighting.</p>
+            </div>
+          </article>
+
+          <!-- AI ASSETS DETAILED ITEMS -->
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="ai-assets" data-gallery="ai-assets" data-index="0">
+            <div class="card-image-wrapper">
+              <img src="work/ai-assets/fetc-ai-asset-1.jpg" alt="AI Asset Concept 01" decoding="async">
+              <span class="collection-badge">AI ASSET // 01</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">AI Asset Concept 01 <span class="arrow-icon">↗</span></h3>
+              <p class="card-desc">Futuristic cybernetic core concept synthesized for tech and sci-fi brand narratives.</p>
+            </div>
+          </article>
+
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="ai-assets" data-gallery="ai-assets" data-index="1">
+            <div class="card-image-wrapper">
+              <img src="work/ai-assets/fetc-ai-asset-2.png" alt="AI Rendered Character 02" decoding="async">
+              <span class="collection-badge">AI ASSET // 02</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">AI Rendered Character 02 <span class="arrow-icon">↗</span></h3>
+              <p class="card-desc">Stylized cyberpunk operative character design with dramatic cinematic backlighting.</p>
+            </div>
+          </article>
+
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="ai-assets" data-gallery="ai-assets" data-index="2">
+            <div class="card-image-wrapper">
+              <img src="work/ai-assets/fetc-ai-asset-3.png" alt="Futuristic AI Environment 03" decoding="async">
+              <span class="collection-badge">AI ASSET // 03</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Futuristic AI Environment 03 <span class="arrow-icon">↗</span></h3>
+              <p class="card-desc">Expansive neon megacity matte environment with volumetric atmospheric haze.</p>
+            </div>
+          </article>
+
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="ai-assets" data-gallery="ai-assets" data-index="3">
+            <div class="card-image-wrapper">
+              <img src="work/ai-assets/fetc-ai-asset-4.png" alt="Sci-Fi Cybernetic Asset 04" decoding="async">
+              <span class="collection-badge">AI ASSET // 04</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Sci-Fi Cybernetic Asset 04 <span class="arrow-icon">↗</span></h3>
+              <p class="card-desc">Precision concept render of next-gen biomechanical neural interface hardware.</p>
+            </div>
+          </article>
+
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="ai-assets" data-gallery="ai-assets" data-index="4">
+            <div class="card-image-wrapper">
+              <img src="work/ai-assets/fetc-ai-asset-5.jpg" alt="Abstract Motion Asset 05" decoding="async">
+              <span class="collection-badge">AI ASSET // 05</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Abstract Motion Asset 05 <span class="arrow-icon">↗</span></h3>
+              <p class="card-desc">Dynamic fluid energy synthesis with iridescent chromatic refraction for brand backdrops.</p>
+            </div>
+          </article>
+
+          <!-- THUMBNAILS DETAILED ITEMS -->
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="thumbnails" data-gallery="thumbnails" data-index="0">
+            <div class="card-image-wrapper">
+              <img src="work/thumbnails/business-thumb-3.jpg" alt="Growth & Tech Cover #1" decoding="async">
+              <span class="collection-badge">THUMBNAIL // 01</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Growth & Tech Cover #1 <span class="arrow-icon">↗</span></h3>
+              <p class="card-desc">High-contrast tech strategy cover engineered for organic YouTube browse feed clicks.</p>
+            </div>
+          </article>
+
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="thumbnails" data-gallery="thumbnails" data-index="1">
+            <div class="card-image-wrapper">
+              <img src="work/thumbnails/business-thumb-4.jpg" alt="Finance Tech Cover #2" decoding="async">
+              <span class="collection-badge">THUMBNAIL // 02</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Finance Tech Cover #2 <span class="arrow-icon">↗</span></h3>
+              <p class="card-desc">Financial market disruption cover with psychology-driven color accents and typography.</p>
+            </div>
+          </article>
+
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="thumbnails" data-gallery="thumbnails" data-index="2">
+            <div class="card-image-wrapper">
+              <img src="work/thumbnails/gaming-thumb-2.jpg" alt="High-Octane Gaming Cover #3" decoding="async">
+              <span class="collection-badge">THUMBNAIL // 03</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">High-Octane Gaming Cover #3 <span class="arrow-icon">↗</span></h3>
+              <p class="card-desc">Esports tournament thumbnail designed with intense speed streaks and dramatic lighting.</p>
+            </div>
+          </article>
+
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="thumbnails" data-gallery="thumbnails" data-index="3">
+            <div class="card-image-wrapper">
+              <img src="work/thumbnails/gaming-thumb-3.jpg" alt="Pro Streamer Cover #4" decoding="async">
+              <span class="collection-badge">THUMBNAIL // 04</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Pro Streamer Cover #4 <span class="arrow-icon">↗</span></h3>
+              <p class="card-desc">Creator milestone thumbnail with radiant halo lighting and expressive facial framing.</p>
+            </div>
+          </article>
+
+          <article class="project-card gallery-trigger-card reveal-item hidden" data-category-item="true" data-category="thumbnails" data-gallery="thumbnails" data-index="4">
+            <div class="card-image-wrapper">
+              <img src="work/thumbnails/gaming-thumb-4.jpg" alt="Ultimate Gaming Showcase #5" decoding="async">
+              <span class="collection-badge">THUMBNAIL // 05</span>
+            </div>
+            <div class="card-details-bar">
+              <h3 class="card-title">Ultimate Gaming Showcase #5 <span class="arrow-icon">↗</span></h3>
+              <p class="card-desc">Cinematic gameplay montage cover with deep contrast and storytelling depth.</p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Interactive Photoshop Retouching & AI Art Comparison Lab -->
+        <div class="before-after-section reveal-item">
+          <div class="before-after-header">
+            <div class="ba-badge">
+              <span class="badge-pulse"></span>
+              <span class="ba-badge-text">INTERACTIVE VISUAL STUDIO</span>
+            </div>
+            <h3 class="ba-title">PHOTOSHOP RETOUCH &amp; COMPOSITING LAB</h3>
+            <p class="ba-sub">Drag the interactive split-slider left &amp; right to reveal the transformation from the raw concept into the final polished Photoshop masterpiece.</p>
+          </div>
+
+          <div class="ba-card-wrapper" id="ba-container">
+            <div class="ba-image-container">
+              <!-- After (Full Retouched Masterpiece) -->
+              <img src="work/photoshop/work-photoshop-2.png" alt="After: Final Retouched Sneaker Commercial Artwork" class="ba-image ba-image-after">
+              <span class="ba-tag ba-tag-after">FINAL MASTERPIECE // POST</span>
+
+              <!-- Before (Raw Concept Image) inside clipped container -->
+              <div class="ba-before-wrapper" id="ba-before-wrapper">
+                <img src="work/photoshop/work-photoshop-2.png" alt="Before: Raw Base Asset Composition" class="ba-image ba-image-before">
+                <span class="ba-tag ba-tag-before">RAW CONCEPT // RAW</span>
+              </div>
+
+              <!-- Draggable Split Divider Handle -->
+              <div class="ba-handle" id="ba-handle">
+                <div class="ba-handle-line"></div>
+                <div class="ba-handle-knob">
+                  <span class="ba-arrow left">⮜</span>
+                  <span class="ba-divider">❘</span>
+                  <span class="ba-arrow right">⮞</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="ba-info-bar">
+              <div class="ba-info-item">
+                <span class="ba-label">TECHNIQUE</span>
+                <span class="ba-val">Multi-Layer Photo Manipulation &amp; Cinematic Lighting</span>
+              </div>
+              <div class="ba-info-item">
+                <span class="ba-label">SOFTWARE</span>
+                <span class="ba-val">Adobe Photoshop • Camera Raw • Neural Filters</span>
+              </div>
+              <div class="ba-info-hint">
+                <span class="pulse-icon">⮜ ⮞</span>
+                <span>Drag Slider to Compare</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+      <div class="about-container">
+        
+        <div class="about-header reveal-item">
+          <h2 class="section-title">ABOUT</h2>
+        </div>
+
+        <div class="about-grid">
+          
+          <!-- Left Column: Bio & Info -->
+          <div class="about-info-col reveal-item">
+            <h3 class="about-name">SANCHIT SHARMA</h3>
+            <div class="about-roles">
+              <span class="role-badge">AI GRAPHIC DESIGNER</span>
+              <span class="multiply-symbol">×</span>
+              <span class="role-badge">FRONTEND WEB DESIGNER</span>
+              <span class="multiply-symbol">×</span>
+              <a href="https://nexvedatechnology.com/" target="_blank" rel="noopener noreferrer" class="role-badge role-badge-link">CO-FOUNDER @ NEXVEDA TECHNOLOGY ↗</a>
+            </div>
+
+            <div class="about-bio">
+              <p>I help businesses, modern brands, and founders build a commanding digital presence from concept to live deployment.</p>
+              <p>My work combines AI-driven visual direction, advanced Photoshop compositing, and high-performance frontend engineering. I bridge the gap between creative visual artistry and production-ready code — creating digital experiences that capture attention and drive real business conversion.</p>
+              <p>Whether engineering a responsive web platform, crafting high-CTR visual systems, or directing bespoke brand assets, every project is built with precision, speed, and uncompromising aesthetic excellence.</p>
+            </div>
+
+            <div class="about-stats-grid">
+              <div class="stat-card">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Custom Aesthetics</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">AI + WEB</span>
+                <span class="stat-label">Creative Synergy</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Profile Photo Card -->
+          <div class="about-photo-col reveal-item">
+            <div class="photo-card-frame">
+              <div class="photo-inner-wrapper">
+                <img src="images/about-portrait.jpg" alt="Sanchit Sharma Portrait" class="profile-photo">
+              </div>
+              <div class="photo-glow-border"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+      <div class="services-container">
+        
+        <div class="section-header reveal-item">
+          <h2 class="section-title">SERVICES</h2>
+        </div>
+
+        <div class="services-list">
+          
+          <!-- Service 01 -->
+          <div class="service-row reveal-item">
+            <div class="service-number">01</div>
+            <div class="service-content">
+              <h3 class="service-name">FRONTEND WEB DESIGN</h3>
+              <p class="service-desc">
+                Bespoke interactive web applications, high-performance user interfaces, dynamic scroll animations, and responsive web experiences built with modern frameworks.
+              </p>
+            </div>
+            <div class="service-arrow">↗</div>
+          </div>
+
+          <!-- Service 02 -->
+          <div class="service-row reveal-item">
+            <div class="service-number">02</div>
+            <div class="service-content">
+              <h3 class="service-name">PHOTOSHOP</h3>
+              <p class="service-desc">
+                High-end digital image retouching, advanced photo compositing, poster artwork, creative visual storytelling, and professional asset manipulation.
+              </p>
+            </div>
+            <div class="service-arrow">↗</div>
+          </div>
+
+          <!-- Service 03 -->
+          <div class="service-row reveal-item">
+            <div class="service-number">03</div>
+            <div class="service-content">
+              <h3 class="service-name">AI ASSETS</h3>
+              <p class="service-desc">
+                Next-gen AI graphic creation, 3D conceptual assets, sci-fi renders, custom generative artwork, and futuristic visual assets tailored for digital media.
+              </p>
+            </div>
+            <div class="service-arrow">↗</div>
+          </div>
+
+          <!-- Service 04 -->
+          <div class="service-row reveal-item">
+            <div class="service-number">04</div>
+            <div class="service-content">
+              <h3 class="service-name">THUMBNAIL DESIGN</h3>
+              <p class="service-desc">
+                High-CTR YouTube thumbnails, gaming & tech stream covers, content branding, and high-impact visual hooks optimized for maximum click-through rate.
+              </p>
+            </div>
+            <div class="service-arrow">↗</div>
+          </div>
+
+        </div>
+
+        <!-- Technical Stack & Capabilities Matrix -->
+        <div class="capabilities-block reveal-item" id="capabilities">
+          <div class="capabilities-header">
+            <span class="workflow-pill-badge">CORE COMPETENCIES</span>
+            <h3 class="workflow-title-main">TECHNICAL CAPABILITIES</h3>
+            <p class="workflow-subtitle">Engineered with modern industry standards, zero-dependency performance, and design precision.</p>
+          </div>
+
+          <div class="capabilities-grid">
+            
+            <!-- Cap 01: Frontend -->
+            <div class="cap-card">
+              <div class="cap-card-header">
+                <span class="cap-num">// 01</span>
+                <h4 class="cap-title">FRONTEND ENGINEERING</h4>
+              </div>
+              <p class="cap-desc">Crafting high-speed, accessible web applications with clean semantic architectures and responsive layouts.</p>
+              <div class="cap-pills">
+                <span class="c-pill">HTML5 Semantic</span>
+                <span class="c-pill">Vanilla ES6+</span>
+                <span class="c-pill">CSS3 Flex/Grid</span>
+                <span class="c-pill">Canvas 2D</span>
+                <span class="c-pill">Core Web Vitals</span>
+                <span class="c-pill">Web APIs</span>
+              </div>
+            </div>
+
+            <!-- Cap 02: UI/UX Systems -->
+            <div class="cap-card">
+              <div class="cap-card-header">
+                <span class="cap-num">// 02</span>
+                <h4 class="cap-title">UI/UX &amp; DESIGN SYSTEMS</h4>
+              </div>
+              <p class="cap-desc">Building scalable component libraries, intuitive user journeys, and dark glassmorphic interfaces in Figma.</p>
+              <div class="cap-pills">
+                <span class="c-pill">Figma Systems</span>
+                <span class="c-pill">Design Tokens</span>
+                <span class="c-pill">User Flow Mapping</span>
+                <span class="c-pill">Interactive Prototyping</span>
+                <span class="c-pill">Typography Hierarchy</span>
+              </div>
+            </div>
+
+            <!-- Cap 03: Visual Art & Retouching -->
+            <div class="cap-card">
+              <div class="cap-card-header">
+                <span class="cap-num">// 03</span>
+                <h4 class="cap-title">VISUAL ART &amp; RETOUCHING</h4>
+              </div>
+              <p class="cap-desc">Commercial photo compositing, non-destructive layer masking, Camera Raw color grading, and poster art.</p>
+              <div class="cap-pills">
+                <span class="c-pill">Adobe Photoshop</span>
+                <span class="c-pill">Digital Compositing</span>
+                <span class="c-pill">Camera Raw</span>
+                <span class="c-pill">Lighting FX</span>
+                <span class="c-pill">High-CTR Covers</span>
+              </div>
+            </div>
+
+            <!-- Cap 04: AI Creative Workflows -->
+            <div class="cap-card">
+              <div class="cap-card-header">
+                <span class="cap-num">// 04</span>
+                <h4 class="cap-title">AI CREATIVE WORKFLOWS</h4>
+              </div>
+              <p class="cap-desc">Prompt engineering, generative 3D asset synthesis, sci-fi worldbuilding, and rapid visual ideation pipelines.</p>
+              <div class="cap-pills">
+                <span class="c-pill">Generative AI</span>
+                <span class="c-pill">3D Sci-Fi Concepts</span>
+                <span class="c-pill">Prompt Engineering</span>
+                <span class="c-pill">Matte Environments</span>
+                <span class="c-pill">Neural Post-Processing</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Streamlined 5-Phase End-to-End Delivery Pipeline -->
+        <div class="process-block reveal-item" id="process">
+          <div class="workflow-header">
+            <span class="workflow-pill-badge">STRUCTURED EXECUTION</span>
+            <h3 class="workflow-title-main">HOW WE WORK</h3>
+            <p class="workflow-subtitle">A transparent, 5-phase delivery framework from initial concept to live production deployment.</p>
+          </div>
+
+          <div class="process-grid">
+            
+            <!-- Step 01 -->
+            <div class="process-card">
+              <div class="process-card-top">
+                <span class="process-step-tag">PHASE 01</span>
+                <span class="process-step-num">01</span>
+              </div>
+              <h4 class="process-step-title">Discovery &amp; Strategy</h4>
+              <p class="process-step-desc">Deconstructing business goals, user psychology, information architecture, and core project benchmarks.</p>
+              <div class="process-deliverable">
+                <span class="p-del-label">DELIVERABLE:</span> UI Blueprints &amp; Project Scope
+              </div>
+            </div>
+
+            <!-- Step 02 -->
+            <div class="process-card">
+              <div class="process-card-top">
+                <span class="process-step-tag">PHASE 02</span>
+                <span class="process-step-num">02</span>
+              </div>
+              <h4 class="process-step-title">UI/UX &amp; Design Systems</h4>
+              <p class="process-step-desc">Engineering bespoke design tokens, component architecture, dark glassmorphic styling, and Figma prototypes.</p>
+              <div class="process-deliverable">
+                <span class="p-del-label">DELIVERABLE:</span> High-Fidelity Interactive Prototype
+              </div>
+            </div>
+
+            <!-- Step 03 -->
+            <div class="process-card">
+              <div class="process-card-top">
+                <span class="process-step-tag">PHASE 03</span>
+                <span class="process-step-num">03</span>
+              </div>
+              <h4 class="process-step-title">Visual Art &amp; AI Assets</h4>
+              <p class="process-step-desc">Synthesizing 3D conceptual assets, commercial photo compositing, and custom branding visuals.</p>
+              <div class="process-deliverable">
+                <span class="p-del-label">DELIVERABLE:</span> Production-Ready 4K Visual Assets
+              </div>
+            </div>
+
+            <!-- Step 04 -->
+            <div class="process-card">
+              <div class="process-card-top">
+                <span class="process-step-tag">PHASE 04</span>
+                <span class="process-step-num">04</span>
+              </div>
+              <h4 class="process-step-title">Frontend Engineering</h4>
+              <p class="process-step-desc">Writing clean, lightweight Vanilla ES6+ code, hardware-accelerated Canvas motion, and responsive CSS systems.</p>
+              <div class="process-deliverable">
+                <span class="p-del-label">DELIVERABLE:</span> 60 FPS Functional Web Application
+              </div>
+            </div>
+
+            <!-- Step 05 -->
+            <div class="process-card">
+              <div class="process-card-top">
+                <span class="process-step-tag">PHASE 05</span>
+                <span class="process-step-num">05</span>
+              </div>
+              <h4 class="process-step-title">Speed Audit &amp; Live Launch</h4>
+              <p class="process-step-desc">Core Web Vitals auditing, SEO optimization, cross-device testing, and final domain deployment.</p>
+              <div class="process-deliverable">
+                <span class="p-del-label">DELIVERABLE:</span> 100/100 Lighthouse Live Production
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+      <div class="contact-container">
+        
+        <div class="section-header reveal-item">
+          <span class="section-kicker">GET IN TOUCH</span>
+          <h2 class="section-title">START A PROJECT</h2>
+        </div>
+
+        <div class="contact-hero-content reveal-item">
+          <h3 class="contact-headline">
+            HAVE A PROJECT IN MIND?<br>LET'S BUILD IT.
+          </h3>
+          <p class="contact-subline">
+            Available for freelance frontend development, UI/UX systems, and visual art direction. Direct response guaranteed within 24 hours.
+          </p>
+
+          <div class="contact-cta-wrapper">
+            <button class="get-in-touch-btn spotlight-btn" id="get-in-touch-btn">
+              <span class="btn-text">START A PROJECT ↗</span>
+              <span class="spotlight-layer"></span>
+              <span class="spotlight-border"></span>
+            </button>
+          </div>
+
+          <!-- Trust Signals Strip -->
+          <div class="trust-signals-bar">
+            <div class="trust-pill"><span class="trust-dot"></span> 24-Hour Response SLA</div>
+            <div class="trust-pill"><span class="trust-dot"></span> 100% Handcrafted Code</div>
+            <div class="trust-pill"><span class="trust-dot"></span> Milestone-Based Delivery</div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="portfolio-footer reveal-item">
+          <div class="footer-brand">SANCHIT SHARMA</div>
+          <div class="footer-tagline">CREATIVE FRONTEND DEVELOPER × VISUAL & AI ART DIRECTOR</div>
+          <div class="footer-social-links">
+            <a href="https://nexvedatechnology.com/" target="_blank" rel="noopener noreferrer" class="footer-link-pill">NEXVEDA TECHNOLOGY (CO-FOUNDER) ↗</a>
+            <a href="https://github.com/sanchitsharma217-arch" target="_blank" rel="noopener" class="footer-link-pill">GITHUB ↗</a>
+            <a href="https://www.linkedin.com/in/sanchit-sharma-59070442a/?locale=en" target="_blank" rel="noopener" class="footer-link-pill">LINKEDIN ↗</a>
+            <button class="footer-link-pill" id="footer-contact-trigger">DIRECT INQUIRY ↗</button>
+          </div>
+          <div class="footer-copy">© 2026 SANCHIT SHARMA. ALL RIGHTS RESERVED.</div>
+        </footer>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Interactive Full-Screen Gallery & Case Study Viewer Modal -->
+  <div id="gallery-modal" class="gallery-modal">
+    <div class="gallery-backdrop"></div>
+    <div class="gallery-container">
+      <button id="gallery-close" class="gallery-close" aria-label="Close Gallery">&times;</button>
+
+      <!-- Navigation Arrows -->
+      <button id="gallery-prev" class="gallery-nav prev" aria-label="Previous Image">&#10094;</button>
+      <button id="gallery-next" class="gallery-nav next" aria-label="Next Image">&#10095;</button>
+
+      <div class="gallery-main-layout">
+        <!-- Main Active Slide Display -->
+        <div class="gallery-slide">
+          <img id="gallery-main-img" src="" alt="Gallery Image">
+        </div>
+
+        <!-- Case Study Breakdown Sheet -->
+        <div class="gallery-case-study" id="gallery-case-study">
+          <div class="cs-badge"><span class="badge-pulse"></span> <span>CASE STUDY BREAKDOWN</span></div>
+          <h3 id="cs-project-title" class="cs-title">Havenix Architecture Studio</h3>
+          <p id="cs-project-desc" class="cs-desc">Designed and developed a responsive architecture studio website with custom visual direction, interactive motion, and a conversion-focused layout.</p>
+
+          <div class="cs-details-grid">
+            <div class="cs-detail-item">
+              <span class="cs-label">01 // CLIENT GOAL &amp; CHALLENGE</span>
+              <p id="cs-problem" class="cs-val">Client needed an ultra-premium digital showcase to attract high-net-worth architectural clients and convert inquiries.</p>
+            </div>
+            <div class="cs-detail-item">
+              <span class="cs-label">02 // ROLE &amp; SCOPE</span>
+              <p id="cs-role" class="cs-val">Full-Cycle Frontend Engineering, UI/UX Design Systems &amp; Visual Motion Direction.</p>
+            </div>
+            <div class="cs-detail-item">
+              <span class="cs-label">03 // DESIGN SYSTEM &amp; DIRECTION</span>
+              <p id="cs-design" class="cs-val">Minimalist dark glassmorphism, bespoke typography, and high-impact full-bleed imagery.</p>
+            </div>
+            <div class="cs-detail-item">
+              <span class="cs-label">04 // TECHNICAL ARCHITECTURE</span>
+              <p id="cs-dev" class="cs-val">Pure Vanilla ES6+ architecture, 60fps dynamic motion, and mobile-first performance.</p>
+            </div>
+            <div class="cs-detail-item">
+              <span class="cs-label">05 // BUSINESS IMPACT &amp; RESULTS</span>
+              <p id="cs-outcome" class="cs-val">Elevated luxury brand authority, fast page load speeds, and seamless cross-device booking experience.</p>
+            </div>
+          </div>
+
+          <div class="cs-cta-row" id="cs-cta-row">
+            <a href="#" target="_blank" rel="noopener" id="cs-live-btn" class="cs-live-btn">VIEW LIVE SITE ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Footer Info & Thumbnail Strip -->
+      <div class="gallery-footer">
+        <div class="gallery-info">
+          <span id="gallery-counter" class="gallery-counter">1 / 6</span>
+          <h4 id="gallery-title" class="gallery-title">AI Asset Concept 01</h4>
+        </div>
+        <div id="gallery-thumbnails-strip" class="gallery-thumbnails-strip"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Form Modal -->
+  <div id="contact-modal" class="contact-modal">
+    <div class="contact-backdrop"></div>
+    <div class="contact-modal-box">
+      <button id="contact-close" class="contact-close" aria-label="Close Contact Modal">&times;</button>
+
+      <h3 class="contact-modal-title">LET'S CONNECT</h3>
+      <p class="contact-modal-subtitle">Tell me about your project, idea, or visual design needs.</p>
+
+      <form id="contact-form" class="contact-form">
+        <div class="form-group">
+          <label for="contact-name">YOUR NAME</label>
+          <input type="text" id="contact-name" name="name" placeholder="John Doe" required>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-email">YOUR EMAIL</label>
+          <input type="email" id="contact-email" name="email" placeholder="john@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-message">PROJECT DETAILS</label>
+          <textarea id="contact-message" name="message" rows="4" placeholder="Describe your project, timeline, and goals..." required></textarea>
+        </div>
+
+        <button type="submit" class="submit-msg-btn">
+          <span class="btn-text">SEND MESSAGE</span>
+        </button>
+      </form>
+
+      <div id="form-success-msg" class="form-success-msg hidden">
+        <span class="success-icon">✓</span>
+        <h4>MESSAGE SENT!</h4>
+        <p>Thank you for reaching out, Sanchit will get back to you shortly.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EmailJS Browser SDK for Gmail SMTP Email Delivery -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>window.USE_3D_BG = true;</script>
+  <script src="script.js"></script>
+  <script type="module" src="bg3d.js"></script>
+</body>
+</html>

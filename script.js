@@ -1256,7 +1256,12 @@ function initDirectionalSpotlightButtons() {
 }
 
 // Start Application
-preloadImages();
+if (window.USE_3D_BG) {
+  // 3D background page: skip the 240-frame sequence, finish preloader when the scene is ready
+  window.addEventListener('bg3d-ready', () => { targetVisualProgress = 100; }, { once: true });
+} else {
+  preloadImages();
+}
 resizeCanvas();
 initBeforeAfterSlider();
 initHeaderNavigation();
