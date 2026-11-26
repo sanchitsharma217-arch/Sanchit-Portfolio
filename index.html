@@ -26,6 +26,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Three.js for the 3D particle background -->
+  <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js" } }</script>
 </head>
 <body>
 
@@ -89,6 +92,8 @@
 
   <!-- Fullscreen Canvas Animation Background -->
   <canvas id="animation-canvas"></canvas>
+  <canvas id="bg3d"></canvas>
+  <div class="bg3d-vignette"></div>
 
   <!-- Main Scrollable Content Container -->
   <div class="scroll-container" id="scroll-container">
@@ -1157,6 +1162,8 @@
 
   <!-- EmailJS Browser SDK for Gmail SMTP Email Delivery -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>window.USE_3D_BG = true;</script>
   <script src="script.js"></script>
+  <script type="module" src="bg3d.js"></script>
 </body>
 </html>

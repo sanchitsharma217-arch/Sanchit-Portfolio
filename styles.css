@@ -444,6 +444,31 @@ body {
   transform: translateZ(0);
 }
 
+/* 3D Particle Background (bg3d.js) — replaces the frame sequence when window.USE_3D_BG is set */
+#bg3d {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+  background: #000000;
+}
+
+#bg3d ~ #animation-canvas,
+#animation-canvas:has(+ #bg3d) {
+  display: none;
+}
+
+.bg3d-vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 45%, transparent 35%, rgba(0, 0, 0, 0.75) 100%);
+}
+
 /* Interactive Procedural Spider Canvas Overlay */
 #spider-canvas {
   position: fixed;
