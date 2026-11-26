@@ -1266,3 +1266,33 @@ resizeCanvas();
 initBeforeAfterSlider();
 initHeaderNavigation();
 initDirectionalSpotlightButtons();
+
+// 3D TILT + CURSOR SPOTLIGHT ON PROJECT CARDS (desktop pointers only)
+(function initCardTilt() {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const MAX_TILT = 6; // degrees
+
+  document.querySelectorAll('.project-card').forEach((card) => {
+    let rafId = null;
+    card.addEventListener('pointermove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        card.classList.add('is-tilting');
+        card.style.setProperty('--ry', ((x - 0.5) * 2 * MAX_TILT).toFixed(2) + 'deg');
+        card.style.setProperty('--rx', ((0.5 - y) * 2 * MAX_TILT).toFixed(2) + 'deg');
+        card.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
+        card.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+      });
+    });
+    card.addEventListener('pointerleave', () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      card.classList.remove('is-tilting');
+      card.style.removeProperty('--rx');
+      card.style.removeProperty('--ry');
+    });
+  });
+})();

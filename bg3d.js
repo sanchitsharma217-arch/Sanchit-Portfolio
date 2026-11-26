@@ -423,11 +423,11 @@ function init() {
 
     keys = [
       { p: 0, angle: 0.0, radius: 7.4, y: 0.3, morphA: 0, morphB: 0, opacity: 1.0 },
-      { p: pWork, angle: 0.55, radius: 9.0, y: 1.6, morphA: 0, morphB: 0, opacity: 0.55 },
-      { p: lerp(pWork, pAbout, 0.6), angle: 1.2, radius: 10.5, y: 2.6, morphA: 0, morphB: 0, opacity: 0.5 },
-      { p: pAbout, angle: 1.8, radius: 12.5, y: 5.2, morphA: 1, morphB: 0, opacity: 0.8 },
-      { p: pServices, angle: 2.8, radius: 12.0, y: 3.4, morphA: 1, morphB: 0, opacity: 0.5 },
-      { p: pContact, angle: TAU, radius: 9.6, y: 0.4, morphA: 1, morphB: 1, opacity: 0.9 },
+      { p: pWork, angle: 0.55, radius: 9.0, y: 1.6, morphA: 0, morphB: 0, opacity: 0.38 },
+      { p: lerp(pWork, pAbout, 0.6), angle: 1.2, radius: 10.5, y: 2.6, morphA: 0, morphB: 0, opacity: 0.32 },
+      { p: pAbout, angle: 1.8, radius: 12.5, y: 5.2, morphA: 1, morphB: 0, opacity: 0.6 },
+      { p: pServices, angle: 2.8, radius: 12.0, y: 3.4, morphA: 1, morphB: 0, opacity: 0.32 },
+      { p: pContact, angle: TAU, radius: 9.6, y: 0.4, morphA: 1, morphB: 1, opacity: 0.75 },
       { p: 1, angle: TAU, radius: 9.2, y: 0.3, morphA: 1, morphB: 1, opacity: 0.95 },
     ].sort((a, b) => a.p - b.p);
   }

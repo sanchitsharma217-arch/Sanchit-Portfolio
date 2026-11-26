@@ -867,7 +867,7 @@ body {
 
 .section-title {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
   font-weight: 800;
   letter-spacing: -0.02em;
   text-transform: uppercase;
@@ -1870,9 +1870,13 @@ body {
 
 .contact-headline {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+  font-size: clamp(2.4rem, 5.2vw, 4.4rem);
   font-weight: 800;
   line-height: 1.05;
+  text-wrap: balance;
+  max-width: 15ch;
+  margin-left: auto;
+  margin-right: auto;
   text-transform: uppercase;
   color: #ffffff;
   letter-spacing: -0.02em;
@@ -1881,11 +1885,14 @@ body {
 
 .contact-subline {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(1rem, 2vw, 1.4rem);
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.75);
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .get-in-touch-btn {
@@ -2800,4 +2807,107 @@ body {
   color: #000000;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================================================
+   3D TILT + CURSOR SPOTLIGHT ON PROJECT CARDS (desktop pointers only)
+   ========================================================================== */
+.project-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  background:
+    radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.10), transparent 45%),
+    radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(0, 255, 136, 0.06), transparent 60%);
+}
+
+.project-card.is-tilting::after {
+  opacity: 1;
+}
+
+.project-card.reveal-item.revealed.is-tilting {
+  transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-6px);
+  transition: transform 0.12s ease-out, border-color 0.45s ease, box-shadow 0.45s ease, background 0.45s ease;
+  transition-delay: 0s;
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.85), 0 0 30px rgba(255, 255, 255, 0.10);
+}
+
+/* ==========================================================================
+   ALIGNMENT FIXES
+   ========================================================================== */
+/* Project cards: pin the action buttons to the bottom so they line up per row */
+.card-actions-row {
+  margin-top: auto;
+  padding-top: 0.6rem;
+}
+
+/* Hero CTAs: identical size, padding and tracking */
+.hero-cta-group .hero-talk-btn,
+.hero-cta-group .explore-btn {
+  min-width: 270px;
+  padding: 1.1rem 2.4rem;
+  letter-spacing: 0.22em;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-cta-group .hero-talk-btn,
+  .hero-cta-group .explore-btn {
+    width: 100%;
+    max-width: 300px;
+    min-width: 0;
+  }
+}
+
+/* About role badges: even spacing, no dangling "×" when the row wraps */
+.about-roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.about-roles .multiply-symbol {
+  display: none;
+}
+
+/* Hero skill tags: one row on desktop, balanced 2x2 grid on smaller screens */
+.hero-skills-strip {
+  max-width: 960px;
+  flex-wrap: nowrap;
+}
+
+@media (max-width: 900px) {
+  .hero-skills-strip {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    gap: 0.6rem;
+  }
+  .hero-skills-strip .h-skill-sep {
+    display: none;
+  }
+  .hero-skills-strip .h-skill-tag {
+    text-align: center;
+  }
+}
+
+/* Browser-frame "LIVE" label: keep on one line, let the URL shrink instead */
+.live-dot {
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.browser-address {
+  min-width: 0;
+  flex: 1 1 auto;
 }
